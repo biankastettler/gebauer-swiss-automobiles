@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gebauer Swiss Automobiles</title>
+<meta name="description" content="Gebauer Swiss Automobiles by Ronny Gebauer. Hand-selected Swiss luxury automobiles, delivered with all export and import papers to your door in Eastern Europe.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;500&family=Hanken+Grotesk:wght@300;400;500;600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* Layout idea: a single horizontal "bridge" line runs through the page — Zürich on the left, the client's door on the right. Graphite night, bone type, one Swiss-red signal. */
+:root{
+  --ink:#0b0c0e;
+  --panel:#141619;
+  --line:#2a2d32;
+  --bone:#ece6da;
+  --mute:#9a958b;
+  --signal:#d42a1e;
+  --display:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
+  --label:"Syncopate","Eurostile","Arial Narrow",sans-serif;
+  --body:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --gut:clamp(16px,5vw,72px);
+  --max:1320px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--ink)}
+body{background:var(--ink);color:var(--bone);font-family:var(--body);font-weight:300;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:1px solid var(--signal);outline-offset:4px}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;letter-spacing:-.01em}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gut)}
+.label{font-family:var(--label);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
+.num{font-variant-numeric:tabular-nums}
+.rule{height:1px;background:var(--line)}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:40;background:rgba(11,12,14,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand svg{width:46px;height:auto}
+.brand .wm{font-family:var(--display);font-size:22px;letter-spacing:.38em;padding-left:.1em}
+.brand .by{display:block;font-family:var(--label);font-size:8px;letter-spacing:.34em;color:var(--mute);margin-top:2px}
+.nav ul{list-style:none;display:flex;gap:34px}
+.nav ul a{font-family:var(--label);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);transition:color .3s}
+.nav ul a:hover{color:var(--bone)}
+.btn{display:inline-flex;align-items:center;gap:14px;font-family:var(--label);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;padding:17px 26px;border:1px solid var(--bone);transition:background .35s,color .35s,border-color .35s}
+.btn:hover{background:var(--bone);color:var(--ink)}
+.btn.solid{background:var(--signal);border-color:var(--signal);color:#fff}
+.btn.solid:hover{background:#b8231a;border-color:#b8231a;color:#fff}
+.btn .arr{width:22px;height:1px;background:currentColor;position:relative}
+.btn .arr:after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg)}
+@media (max-width:980px){.nav ul{display:none}}
+@media (max-width:520px){.nav .btn{padding:13px 14px;letter-spacing:.2em}.brand .wm{font-size:18px;letter-spacing:.28em}}
+
+/* HERO */
+.hero{padding:clamp(56px,9vw,120px) 0 64px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:end}
+.hero h1{font-size:clamp(46px,7.4vw,112px);line-height:.96}
+.hero h1 em{font-style:italic;color:var(--mute)}
+.hero p.lede{max-width:46ch;margin-top:30px;color:#cfc9bd;font-size:18px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.ledger{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+.ledger div{padding:20px 0 0}
+.ledger div+div{padding-left:22px;border-left:1px solid var(--line)}
+.ledger b{display:block;font-family:var(--display);font-size:34px;font-weight:400;line-height:1.1}
+.mapbox{position:relative;border:1px solid var(--line);background:linear-gradient(180deg,#101215,#0b0c0e);padding:22px 22px 14px}
+.mapbox .top{display:flex;justify-content:space-between;margin-bottom:8px}
+.mapbox svg{width:100%;height:auto}
+.mapbox .city{font-family:var(--label);font-size:7.5px;letter-spacing:.22em;fill:var(--mute);text-transform:uppercase}
+.mapbox .origin{fill:var(--bone)}
+.route{fill:none;stroke:#4a4d52;stroke-width:.8}
+.route.hot{stroke:var(--bone);stroke-width:1}
+.mapbox .readout{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:12px;margin-top:6px;font-size:13px;color:var(--mute)}
+.mapbox .readout strong{color:var(--bone);font-weight:500}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr}.ledger b{font-size:26px}}
+@media (max-width:460px){.ledger{grid-template-columns:1fr}.ledger div+div{padding-left:0;border-left:0;border-top:1px solid var(--line);margin-top:14px}}
+
+/* MARQUEE */
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:22px 0}
+.marq .track{display:inline-flex;gap:64px;animation:slide 48s linear infinite;font-family:var(--display);font-size:28px;font-style:italic;color:#6f6b64}
+.marq .track span:nth-child(odd){color:var(--bone);font-style:normal;font-family:var(--label);font-size:13px;letter-spacing:.4em;align-self:center}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:clamp(80px,10vw,140px) 0}
+.head{display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:56px;align-items:start}
+.head h2{font-size:clamp(36px,4.6vw,64px);line-height:1.02}
+.head p{max-width:58ch;color:#bdb7ab;margin-top:20px}
+@media (max-width:820px){.head{grid-template-columns:1fr;gap:14px}}
+
+/* COLLECTION */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+.chip{font-family:var(--label);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;padding:11px 16px;border:1px solid var(--line);color:var(--mute);transition:all .3s}
+.chip:hover{color:var(--bone);border-color:#555}
+.chip[aria-pressed="true"]{color:var(--ink);background:var(--bone);border-color:var(--bone)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.car{background:var(--ink);padding:30px;display:flex;flex-direction:column;gap:22px;transition:background .4s}
+.car:hover{background:#111316}
+.car .vis{position:relative;aspect-ratio:16/8;overflow:hidden;background:radial-gradient(120% 90% at 70% 10%,var(--p2) 0%,var(--p1) 45%,#08090a 100%)}
+.car .vis:before{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.14) 46%,transparent 60%);transform:translateX(-60%);transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.car:hover .vis:before{transform:translateX(60%)}
+.car .vis svg{position:absolute;left:6%;right:6%;bottom:9%;width:88%;opacity:.92}
+.car .vis .stock{position:absolute;left:16px;top:14px;font-family:var(--label);font-size:8.5px;letter-spacing:.3em;color:rgba(255,255,255,.75)}
+.car .vis .paint{position:absolute;right:16px;top:12px;font-family:var(--display);font-style:italic;font-size:14px;color:rgba(255,255,255,.85)}
+.car .t{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.car h3{font-size:30px;line-height:1.1}
+.car h3 small{display:block;font-family:var(--label);font-size:9.5px;letter-spacing:.32em;color:var(--mute);margin-bottom:8px;text-transform:uppercase}
+.car .price{font-family:var(--display);font-size:24px;white-space:nowrap}
+.specs{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.specs div{padding:13px 0}
+.specs div+div{padding-left:14px;border-left:1px solid var(--line)}
+.specs span{display:block;font-size:11px;color:var(--mute)}
+.specs b{font-weight:500;font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;color:#bdb7ab}
+.tags li{list-style:none;display:flex;align-items:center;gap:8px}
+.tags li:before{content:"";width:4px;height:4px;background:var(--signal);border-radius:50%}
+.car .act{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
+.car .act .btn{padding:15px 20px}
+@media (max-width:900px){.grid{grid-template-columns:1fr}}
+@media (max-width:460px){.car{padding:20px}.specs{grid-template-columns:repeat(2,1fr)}.specs div:nth-child(3){padding-left:0;border-left:0}.specs div:nth-child(n+3){border-top:1px solid var(--line)}}
+.note{margin-top:18px;font-size:13px;color:var(--mute)}
+
+/* PROCESS */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--bone)}
+.step{padding:30px 26px 0 0;position:relative}
+.step+.step{padding-left:26px;border-left:1px solid var(--line)}
+.step .n{font-family:var(--display);font-size:64px;line-height:1;color:#3a3d42}
+.step h3{font-size:24px;margin:18px 0 12px}
+.step p{font-size:15px;color:#bdb7ab}
+.step .d{margin-top:18px;font-family:var(--label);font-size:9px;letter-spacing:.3em;color:var(--signal)}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}.step:nth-child(3){padding-left:0;border-left:0}.step:nth-child(n+3){margin-top:40px}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}.step+.step{padding-left:0;border-left:0;margin-top:40px}}
+
+/* PAPERS */
+.papers{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.doclist{list-style:none;border-top:1px solid var(--line)}
+.doclist li{display:grid;grid-template-columns:56px 1fr auto;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.doclist .k{font-family:var(--label);font-size:9px;letter-spacing:.3em;color:var(--mute)}
+.doclist b{font-weight:500;display:block}
+.doclist span.s{font-size:14px;color:var(--mute)}
+.doclist .ok{font-family:var(--label);font-size:9px;letter-spacing:.26em;color:var(--bone)}
+.quote{font-family:var(--display);font-size:clamp(28px,3.4vw,44px);line-height:1.15;font-style:italic}
+.quote:before{content:"“";display:block;font-size:90px;line-height:.6;color:var(--signal);font-style:normal;margin-bottom:18px}
+.sig{margin-top:28px;display:flex;gap:16px;align-items:center}
+.sig .ln{width:48px;height:1px;background:var(--mute)}
+@media (max-width:900px){.papers{grid-template-columns:1fr}}
+
+/* DELIVERY TABLE */
+.tbl{overflow-x:auto;border-top:1px solid var(--bone)}
+table{width:100%;border-collapse:collapse;min-width:620px}
+th{font-family:var(--label);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);font-weight:400;text-align:left;padding:18px 12px 14px 0}
+td{padding:18px 12px 18px 0;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
+td:first-child{font-family:var(--display);font-size:22px}
+td.r,th.r{text-align:right;padding-right:0}
+tr:hover td{color:#fff}
+.bar{height:2px;background:var(--line);position:relative;min-width:120px}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bone)}
+.compliance{margin-top:40px;display:grid;grid-template-columns:auto 1fr;gap:22px;padding:26px;border:1px solid var(--line);background:var(--panel)}
+.compliance .mk{width:28px;height:28px;background:var(--signal);position:relative}
+.compliance .mk:before,.compliance .mk:after{content:"";position:absolute;background:#fff;left:50%;top:50%;transform:translate(-50%,-50%)}
+.compliance .mk:before{width:16px;height:5px}.compliance .mk:after{width:5px;height:16px}
+.compliance p{font-size:14.5px;color:#cfc9bd;max-width:90ch}
+.compliance b{color:var(--bone);font-weight:500}
+
+/* SOURCE */
+.source{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:center;border:1px solid var(--line);padding:clamp(28px,5vw,64px)}
+.source h2{font-size:clamp(34px,4vw,56px);line-height:1.04}
+.source p{color:#bdb7ab;margin-top:18px;max-width:52ch}
+@media (max-width:900px){.source{grid-template-columns:1fr;gap:28px}}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:64px 0 40px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot h4{font-family:var(--label);font-weight:400;font-size:9.5px;letter-spacing:.3em;color:var(--mute);margin-bottom:16px}
+.foot p,.foot a{font-size:14.5px;color:#cfc9bd;display:block;line-height:1.9}
+.foot a:hover{color:#fff}
+.legal{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:56px;font-size:12px;color:var(--mute)}
+@media (max-width:820px){.foot{grid-template-columns:1fr 1fr}}
+
+/* ORDER DRAWER */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .4s;z-index:80}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(620px,100%);background:var(--panel);border-left:1px solid var(--line);z-index:90;transform:translateX(100%);transition:transform .55s cubic-bezier(.2,.7,.2,1);display:flex;flex-direction:column}
+body.open .scrim{opacity:1;pointer-events:auto}
+body.open .drawer{transform:none}
+body.open{overflow:hidden}
+.dh{padding:26px 34px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.dh h3{font-size:30px;line-height:1.1;margin-top:8px}
+.x{width:40px;height:40px;border:1px solid var(--line);position:relative;flex:none}
+.x:before,.x:after{content:"";position:absolute;left:50%;top:50%;width:16px;height:1px;background:var(--bone)}
+.x:before{transform:translate(-50%,-50%) rotate(45deg)}.x:after{transform:translate(-50%,-50%) rotate(-45deg)}
+.prog{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:16px 34px;border-bottom:1px solid var(--line)}
+.prog div{font-family:var(--label);font-size:8px;letter-spacing:.24em;color:#5d5a55;padding-top:10px;border-top:2px solid #2c2f33;text-transform:uppercase}
+.prog div.on{color:var(--bone);border-color:var(--bone)}
+.prog div.done{color:var(--mute);border-color:var(--signal)}
+.db{flex:1;overflow-y:auto;padding:30px 34px}
+.pane{display:none}.pane.on{display:block}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.field label{font-family:var(--label);font-size:8.5px;letter-spacing:.28em;color:var(--mute);text-transform:uppercase}
+.field input,.field select,.field textarea{background:transparent;border:0;border-bottom:1px solid #3a3d42;color:var(--bone);font:inherit;font-size:16px;padding:10px 0;border-radius:0;outline:none;transition:border-color .3s}
+.field select option{background:var(--panel)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--bone)}
+.field textarea{resize:vertical;min-height:84px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
+@media (max-width:520px){.row{grid-template-columns:1fr}.dh,.db,.prog,.df{padding-left:20px;padding-right:20px}}
+.picked{border:1px solid var(--line);padding:18px;display:flex;gap:16px;align-items:center;margin-bottom:24px}
+.picked .sw{width:54px;height:54px;flex:none}
+.picked b{font-family:var(--display);font-weight:400;font-size:22px;display:block;line-height:1.15}
+.picked span{font-size:13px;color:var(--mute)}
+.opt{display:grid;gap:10px;margin-bottom:22px}
+.opt label{display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);padding:16px;cursor:pointer;transition:border-color .3s}
+.opt label:hover{border-color:#555}
+.opt input{accent-color:var(--signal);margin-top:4px}
+.opt b{font-weight:500;display:block}
+.opt span{font-size:13px;color:var(--mute)}
+.opt label:has(input:checked){border-color:var(--bone)}
+.check{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:#cfc9bd;margin-bottom:14px}
+.check input{accent-color:var(--signal);margin-top:4px;flex:none}
+.err{color:#ff8a80;font-size:13px;min-height:20px;margin-top:4px}
+.summary{border-top:1px solid var(--line)}
+.summary div{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.summary dt{font-family:var(--label);font-size:8.5px;letter-spacing:.26em;color:var(--mute);padding-top:4px}
+.df{padding:20px 34px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+.df .btn{padding:16px 22px}
+.ghost{border-color:var(--line);color:var(--mute)}
+.done-box{text-align:left}
+.done-box .ref{font-family:var(--display);font-size:46px;margin:12px 0 6px}
+.done-box p{color:#cfc9bd;margin-bottom:16px}
+.mailbox{border:1px solid var(--line);padding:16px;font-size:13px;color:var(--mute);margin:18px 0}
+.mailbox code{color:var(--bone);font-family:var(--body);font-size:14px}
+
+/* load moment */
+@media (prefers-reduced-motion:no-preference){
+  .hero h1 .ln{display:block;animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
+  .hero h1 .ln:nth-child(2){animation-delay:.12s}
+  .hero h1 .ln:nth-child(3){animation-delay:.24s}
+  @keyframes rise{from{transform:translateY(28px);opacity:.15}to{transform:none;opacity:1}}
+}
+@media (prefers-reduced-motion:reduce){.marq .track{animation:none}*{transition:none!important}}
+
+/* ---- additions: multilingual type fallbacks (Cyrillic / Latin-ext), language switch, about, impressum ---- */
+:root{
+  --display:"Tinos","Liberation Serif","Times New Roman",serif;
+  --label:"Inter","Helvetica Neue",Arial,sans-serif;
+  --body:"Hanken Grotesk","Manrope","Helvetica Neue",Arial,sans-serif;
+}
+.navr{display:flex;align-items:center;gap:14px}
+.lang{display:flex;border:1px solid var(--line)}
+.lang button{font-family:var(--label);font-size:9px;letter-spacing:.18em;padding:9px 9px;color:var(--mute);transition:color .3s,background .3s}
+.lang button:hover{color:var(--bone)}
+.lang button[aria-pressed="true"]{background:var(--bone);color:var(--ink)}
+.langsel{display:none;background:transparent;color:var(--bone);border:1px solid var(--line);font-family:var(--label);font-size:10px;letter-spacing:.16em;padding:10px 8px}
+.langsel option{background:var(--panel)}
+@media (max-width:1320px){.lang{display:none}.langsel{display:block}}
+.about{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.portrait{aspect-ratio:4/5;border:1px solid var(--line);background:linear-gradient(160deg,#1a1c20,#0b0c0e);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.05)}
+.portrait .mono{font-family:var(--display);font-size:120px;color:#2b2e33;letter-spacing:.04em}
+.portrait .cap{position:absolute;left:16px;bottom:14px}
+.portrait:after{content:"";position:absolute;right:16px;bottom:18px;width:8px;height:8px;border-radius:50%;background:var(--signal)}
+.about h2{font-size:clamp(40px,5vw,72px);line-height:1;font-style:italic}
+.about p{color:#cfc9bd;max-width:58ch;margin-top:22px}
+@media (max-width:820px){.about{grid-template-columns:1fr}.portrait{max-width:420px}}
+.imp{border-top:1px solid var(--line);margin-top:48px;padding-top:32px;display:grid;grid-template-columns:220px repeat(2,1fr);gap:28px;font-size:14px;color:#cfc9bd}
+.imp h4{font-family:var(--label);font-weight:400;font-size:9.5px;letter-spacing:.3em;color:var(--mute);margin-bottom:10px}
+@media (max-width:820px){.imp{grid-template-columns:1fr 1fr}}
+.car .vis .sym{position:absolute;left:16px;bottom:12px;font-family:var(--label);font-size:7.5px;letter-spacing:.26em;color:rgba(255,255,255,.7);text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+.car .vis .stock,.car .vis .paint{z-index:1;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.car .vis img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);position:relative;flex:none}
+.burger span{position:absolute;left:12px;right:12px;height:1px;background:var(--bone);transition:transform .35s,opacity .35s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:26px}
+body.menu .burger span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+body.menu .burger span:nth-child(2){opacity:0}
+body.menu .burger span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+.mmenu{display:none;position:fixed;left:0;right:0;top:76px;bottom:0;z-index:39;background:var(--ink);padding:28px var(--gut);flex-direction:column;overflow-y:auto}
+.mmenu a{font-family:var(--display);font-size:38px;line-height:1.2;padding:12px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:baseline}
+.mmenu a small{font-family:var(--label);font-size:9px;letter-spacing:.3em;color:var(--mute)}
+.mmenu .mlang{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.mmenu .mlang button{font-family:var(--label);font-size:10px;letter-spacing:.2em;padding:12px 14px;border:1px solid var(--line);color:var(--mute)}
+.mmenu .mlang button[aria-pressed="true"]{background:var(--bone);color:var(--ink);border-color:var(--bone)}
+.mmenu .btn{margin-top:28px;justify-content:center}
+@media (max-width:980px){.burger{display:block}body.menu .mmenu{display:flex}body.menu{overflow:hidden}.langsel{display:none!important}}
+@media (max-width:520px){.navr>.btn{display:none}}
+
+/* ---- hero v2: full-width headline, photo behind, text + map below ---- */
+.hero{position:relative;overflow:hidden;padding:clamp(56px,7vw,110px) 0 72px}
+.hero .wrap{position:relative;z-index:1}
+.hero-bg{position:absolute;inset:0 0 auto 0;height:min(78vh,820px);background:url("img/porsche-911-gt3-touring.jpg") 78% 60%/cover no-repeat;opacity:.55}
+.hero-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(11,12,14,.92) 30%,rgba(11,12,14,.35) 65%,rgba(11,12,14,.55) 100%),linear-gradient(180deg,rgba(11,12,14,0) 55%,var(--ink) 100%)}
+.hero h1{font-size:clamp(44px,6.2vw,104px);line-height:1;margin-top:26px;max-width:none}
+.hero h1 .ln{display:block}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,6vw,96px);align-items:start;margin-top:clamp(36px,4vw,56px)}
+.hero p.lede{margin-top:0}
+.ledger{margin-top:44px}
+@media (min-width:1100px){.hero h1 .ln{white-space:nowrap}}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr}.hero-bg{opacity:.35;height:60vh}}
+.nav ul{gap:26px}
+.nav ul a,.btn,.brand .by{white-space:nowrap}
+@media (max-width:1560px){.brand .byn{display:none}}
+@media (max-width:1180px) and (min-width:981px){.nav ul{gap:18px}.nav ul a{letter-spacing:.22em}}
+.brand svg{flex:none;width:46px}
+.nav .wrap{gap:20px}
+
+/* ---- v3: hero slideshow, brands grid, fleet, mobile footer ---- */
+.hero-bg{background:none!important;opacity:1!important;overflow:hidden}
+.hero-bg i{position:absolute;inset:0;background-size:cover;background-position:72% 55%;opacity:0;transform:scale(1.06)}
+.hero-bg i:first-child{opacity:.55;transform:none}
+.hero-bg:after{z-index:1}
+@media (prefers-reduced-motion:no-preference){
+  .hero-bg i{animation:heroFade 30s linear infinite}
+  .hero-bg i:first-child{opacity:0}
+  .hero-bg i:nth-child(2){animation-delay:6s}.hero-bg i:nth-child(3){animation-delay:12s}
+  .hero-bg i:nth-child(4){animation-delay:18s}.hero-bg i:nth-child(5){animation-delay:24s}
+  @keyframes heroFade{0%{opacity:0;transform:scale(1.06)}4%{opacity:.55}20%{opacity:.55}24%{opacity:0;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+}
+.brands{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.brand-t{background:var(--ink);padding:30px 26px 26px;text-align:left;display:flex;flex-direction:column;gap:10px;min-height:190px;transition:background .4s}
+.brand-t:hover{background:#121418}
+.brand-t .bn{font-family:var(--display);font-size:clamp(24px,2.2vw,32px);line-height:1.1}
+.brand-t .bm{font-size:13.5px;color:var(--mute)}
+.brand-t .bc{margin-top:auto;display:flex;align-items:center;gap:12px;font-family:var(--label);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--mute);transition:color .3s}
+.brand-t:hover .bc{color:var(--signal)}
+.brand-t.other{background:var(--panel)}
+.brand-t.other .bn{font-style:italic;color:var(--mute)}
+@media (max-width:1100px){.brands{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.brands{grid-template-columns:repeat(2,1fr)}.brand-t{min-height:150px;padding:22px 18px}}
+.fleet{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.fleet-img{position:relative;margin:0;width:100%;border:1px solid var(--line);overflow:hidden;aspect-ratio:16/9}
+.fleet-img img{width:100%;height:100%;object-fit:cover}
+.fleet-img .sym{position:absolute;left:16px;bottom:12px;font-family:var(--label);font-size:8px;letter-spacing:.26em;color:rgba(255,255,255,.75);text-transform:uppercase;text-shadow:0 1px 4px rgba(0,0,0,.7)}
+.fleet-stats{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--bone)}
+.fleet-stats>div{padding:20px 0;border-bottom:1px solid var(--line)}
+.fleet-stats b{display:block;font-family:var(--display);font-weight:400;font-size:44px;line-height:1}
+.fleet-stats .label{display:block;margin-top:8px}
+.fleet-stats p{font-size:14.5px;color:#bdb7ab;margin-top:8px;max-width:44ch}
+.fleet-stats .btn{margin-top:26px;align-self:flex-start}
+@media (max-width:900px){.fleet{grid-template-columns:1fr}}
+@media (max-width:600px){
+  .foot{grid-template-columns:1fr;gap:30px}
+  .foot .wm{font-size:18px!important;letter-spacing:.3em!important}
+  .foot .brand svg{width:44px!important}
+  .imp{grid-template-columns:1fr;gap:22px}
+  .legal{flex-direction:column}
+  .foot p,.foot a{font-size:15px}
+}
+
+/* ================= GEBAUER · gold edition ================= */
+:root{
+  --gold:#c9a45c; --gold-hi:#ecd49a; --gold-lo:#8b6a30;
+  --goldgrad:linear-gradient(115deg,#8b6a30 0%,#d9b86e 28%,#f3e0a8 48%,#c9a45c 66%,#9c7838 100%);
+  --mute:#a39a88;
+}
+:focus-visible{outline-color:var(--gold)}
+.gold,.hero h1 em,.ledger b,.fleet-stats b,.step .n{background:var(--goldgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero h1 em{font-style:italic;padding-right:.06em}
+.step .n{opacity:.9}
+.label,.foot h4,.imp h4,.th,th{color:#b99c62}
+.brand{gap:14px}
+.brand .crest{height:50px;width:auto;flex:none;filter:drop-shadow(0 2px 8px rgba(201,164,92,.18))}
+.brand .wm{letter-spacing:.34em;font-size:22px}
+.brand .by{color:#b99c62}
+.crest-lg{height:120px;width:auto}
+.btn.solid{background:var(--goldgrad);background-size:180% 100%;background-position:0% 0;border-color:#c9a45c;color:#0b0c0e;font-weight:500;transition:background-position .6s,box-shadow .4s}
+.btn.solid:hover{background:var(--goldgrad);background-size:180% 100%;background-position:100% 0;border-color:#e3c98a;color:#0b0c0e;box-shadow:0 8px 30px -10px rgba(201,164,92,.55)}
+.btn:not(.solid){border-color:rgba(201,164,92,.7);color:var(--gold-hi)}
+.btn:not(.solid):hover{background:var(--gold);border-color:var(--gold);color:#0b0c0e}
+.btn.ghost{border-color:#3a3d42;color:var(--mute)}
+.lang button[aria-pressed="true"],.mmenu .mlang button[aria-pressed="true"]{background:var(--gold);color:#0b0c0e;border-color:var(--gold)}
+.nav ul a:hover{color:var(--gold-hi)}
+.marq .track span:nth-child(odd){color:var(--gold-hi)}
+.ledger,.steps,.tbl,.fleet-stats,.doclist{border-top-color:rgba(201,164,92,.65)!important}
+.route.hot{stroke:var(--gold)}
+.bar i{background:var(--goldgrad)}
+.quote:before{color:var(--gold)}
+.step .d{color:var(--gold)}
+.sig .ln{background:var(--gold)}
+.doclist .ok{color:var(--gold)}
+.tags li:before{background:var(--gold)}
+.brand-t:hover .bc{color:var(--gold-hi)}
+.brand-t .bn{transition:color .3s}
+.brand-t:hover .bn{color:var(--gold-hi)}
+.portrait:after{background:var(--gold)}
+.prog div.on{border-color:var(--gold);color:var(--gold-hi)}
+.prog div.done{border-color:var(--gold-lo)}
+.opt input,.check input{accent-color:var(--gold)}
+.opt label:has(input:checked){border-color:var(--gold)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--gold)}
+/* hairline gold divider between major sections */
+main>section+section{position:relative}
+main>section+section:before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:min(var(--max),calc(100% - 2*var(--gut)));height:1px;background:linear-gradient(90deg,transparent,rgba(201,164,92,.55),transparent)}
+.nav{border-bottom-color:rgba(201,164,92,.22)}
+footer{border-top-color:rgba(201,164,92,.35)}
+@media (max-width:520px){.brand .crest{height:42px}.brand .wm{font-size:17px;letter-spacing:.26em}}
+
+/* ---- platinum / silver accents (to match the crest) ---- */
+:root{--plat:#d9dce1;--platgrad:linear-gradient(115deg,#8f9297 0%,#d4d7dc 30%,#f6f7f9 48%,#b3b6bb 66%,#e9ebee 82%,#8f9297 100%)}
+.plat,.ledger b,.step .n,.brand .by{background:var(--platgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand .by{opacity:.95}
+.btn:not(.solid){border-color:rgba(217,220,225,.55);color:var(--plat)}
+.btn:not(.solid):hover{background:var(--platgrad);border-color:var(--plat);color:#0b0c0e}
+.btn.ghost{border-color:#3a3d42;color:var(--mute)}
+.brand-t:hover .bn{background:var(--platgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.route{stroke:#5a5d63}
+.route.hot{stroke:var(--gold)}
+.mapbox{border-color:rgba(217,220,225,.18)}
+.doclist b,.summary dd{color:#eef0f3}
+.head h2,.fleet h2{color:#f2efe8}
+.lang{border-color:rgba(217,220,225,.25)}
+.chip[aria-pressed="true"]{background:var(--plat)}
+.ledger{border-top-color:rgba(217,220,225,.45)!important}
+.marq .track span:nth-child(even){background:var(--platgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---- larger crest + centred tagline (v2 & v3) ---- */
+.nav .wrap{height:100px}
+.mmenu{top:100px}
+.brand{gap:18px}
+.brand .crest{height:78px}
+.brand>span{display:flex;flex-direction:column;align-items:center;text-align:center}
+.brand .wm{font-size:26px;letter-spacing:.34em;margin-right:-.34em;line-height:1}
+.brand .by{margin-top:7px;letter-spacing:.34em;margin-right:-.34em;font-size:8.5px}
+.crest-lg{height:170px}
+@media (max-width:980px){.nav .wrap{height:88px}.mmenu{top:88px}.brand .crest{height:64px}}
+@media (max-width:520px){.nav .wrap{height:80px}.mmenu{top:80px}.brand .crest{height:56px}.brand .wm{font-size:19px;letter-spacing:.28em;margin-right:-.28em}.brand .by{font-size:7.5px;letter-spacing:.26em;margin-right:-.26em}}
+
+/* ================= VERSION 3 · Swiss red + subtle gold ================= */
+:root{--red:#c8231a;--red-hi:#e0362b;--gold:#b69a64;--gold-hi:#d6c08f;
+  --goldgrad:linear-gradient(115deg,#9a8150 0%,#c9b07a 45%,#e2cf9f 60%,#a88c56 100%)}
+.btn.solid{background:var(--red);background-size:auto;border-color:var(--red);color:#fff;font-weight:500}
+.btn.solid:hover{background:var(--red-hi);background-size:auto;border-color:var(--red-hi);color:#fff;box-shadow:0 8px 30px -12px rgba(200,35,26,.6)}
+.label,.foot h4,.imp h4,th{color:#9d9586}
+.head .label,.hero .label{color:#b69a64}
+.lang button[aria-pressed="true"],.mmenu .mlang button[aria-pressed="true"]{background:var(--plat);color:#0b0c0e;border-color:var(--plat)}
+.route.hot{stroke:var(--red-hi)}
+.bar i{background:var(--plat)}
+.step .d{color:var(--red-hi)}
+.doclist .ok{color:#9d9586}
+.quote:before{color:var(--red)}
+.sig .ln{background:var(--red)}
+.portrait:after{background:var(--red)}
+.prog div.on{border-color:var(--red);color:#fff}
+.prog div.done{border-color:#6b1610}
+.opt input,.check input{accent-color:var(--red)}
+.opt label:has(input:checked){border-color:var(--plat)}
+.brand-t:hover .bc{color:var(--red-hi)}
+.fleet-stats b{background:var(--platgrad);-webkit-background-clip:text;background-clip:text;color:transparent}
+main>section+section:before{background:linear-gradient(90deg,transparent,rgba(182,154,100,.28),transparent)}
+.nav{border-bottom-color:rgba(255,255,255,.08)}
+footer{border-top-color:rgba(255,255,255,.1)}
+.marq .track span:nth-child(odd){color:var(--gold-hi)}
+
+@media (max-width:1560px){.lang{display:none}.langsel{display:block}}
+@media (min-width:981px){.nav ul{gap:24px}.nav .wrap{gap:28px}}
+
+.imp{grid-template-columns:repeat(2,minmax(0,1fr))!important;font-size:14.5px;line-height:1.75}
+.imp a{color:#cfc9bd}
+.imp-txt{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;border-top:1px solid var(--line);padding-top:26px;margin-top:6px}
+.imp-txt p{font-size:13.5px;color:#a8a296;line-height:1.7}
+@media (max-width:820px){.imp-txt{grid-template-columns:1fr;gap:20px}}
+@media (max-width:600px){.imp{grid-template-columns:1fr!important}}
+
+.brand .lockup{height:78px;width:auto;display:block}
+@media (max-width:980px){.brand .lockup{height:62px}}
+@media (max-width:520px){.brand .lockup{height:50px}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Gebauer Swiss Automobiles"><img class="lockup" src="img/gebauer-header.png" alt="Gebauer Swiss Automobiles" width="236" height="78"></a>
+    <ul>
+      <li><a href="#brands" data-i="nav.brands"></a></li>
+      <li><a href="#process" data-i="nav.process"></a></li>
+      <li><a href="#fleet" data-i="nav.fleet"></a></li>
+      <li><a href="#delivery" data-i="nav.delivery"></a></li>
+      <li><a href="#about" data-i="nav.about"></a></li>
+    </ul>
+    <div class="navr">
+      <div class="lang" id="langBtns" role="group" aria-label="Language"></div>
+      <select class="langsel" id="langSel" aria-label="Language"></select>
+      <button class="btn solid" data-order="" data-i="cta.order"></button>
+      <button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="mmenu" id="mmenu" aria-label="Menu">
+  <a href="#brands"><span data-i="nav.brands"></span><small>01</small></a>
+  <a href="#process"><span data-i="nav.process"></span><small>02</small></a>
+  <a href="#papers"><span data-i="nav.papers"></span><small>03</small></a>
+  <a href="#delivery"><span data-i="nav.delivery"></span><small>04</small></a>
+  <a href="#fleet"><span data-i="nav.fleet"></span><small>05</small></a>
+  <a href="#about"><span data-i="nav.about"></span><small>06</small></a>
+  <div class="mlang" id="mLang" role="group" aria-label="Language"></div>
+  <button class="btn solid" data-order=""><span data-i="cta.order"></span> <span class="arr"></span></button>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"><i style="background-image:url(img/porsche-911-gt3-touring.jpg)"></i><i style="background-image:url(img/lamborghini-revuelto.jpg)"></i><i style="background-image:url(img/rolls-royce-ghost.jpg)"></i><i style="background-image:url(img/ferrari-roma.jpg)"></i><i style="background-image:url(img/mercedes-amg-g63.jpg)"></i></div>
+  <div class="wrap">
+    <div class="label" data-i="hero.kicker"></div>
+    <h1><span class="ln" data-i="hero.l1"></span><span class="ln" data-i="hero.l2"></span><span class="ln" data-i="hero.l3"></span></h1>
+    <div class="hero-grid">
+      <div>
+        <p class="lede" data-i="hero.lede"></p>
+        <div class="ctas">
+          <button class="btn solid" data-order=""><span data-i="cta.order"></span> <span class="arr"></span></button>
+          <a class="btn" href="#brands" data-i="hero.view"></a>
+        </div>
+        <div class="ledger">
+          <div><b class="num">3</b><span class="label" data-i="led.a"></span></div>
+          <div><b class="num">17</b><span class="label" data-i="led.b"></span></div>
+          <div><b class="num">5–9</b><span class="label" data-i="led.3"></span></div>
+        </div>
+      </div>
+      <div class="mapbox">
+        <div class="top"><span class="label" data-i="map.live"></span><span class="label" id="rt-label">ZRH → WAW</span></div>
+        <svg id="map" viewBox="0 0 620 300" role="img" aria-label="Route map"></svg>
+        <div class="readout"><span><span data-i="map.dest"></span> <strong id="rt-city"></strong></span><span><span data-i="map.dist"></span> <strong class="num" id="rt-km"></strong></span><span><span data-i="map.door"></span> <strong class="num" id="rt-days"></strong></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marq" aria-hidden="true"><div class="track" id="marq"></div></div>
+
+<section id="brands">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">01 · <span data-i="nav.brands"></span></div>
+      <div><h2 data-i="br.h"></h2><p data-i="br.p"></p></div>
+    </div>
+    <div class="brands" id="brandGrid"></div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--panel)">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">02 · <span data-i="nav.process"></span></div>
+      <div><h2 data-i="proc.h"></h2><p data-i="proc.p"></p></div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">I</div><h3 data-i="s1h"></h3><p data-i="s1p"></p><div class="d"><span data-i="day"></span> 0</div></div>
+      <div class="step"><div class="n">II</div><h3 data-i="s2h"></h3><p data-i="s2p"></p><div class="d"><span data-i="day"></span> 1–2</div></div>
+      <div class="step"><div class="n">III</div><h3 data-i="s3h"></h3><p data-i="s3p"></p><div class="d"><span data-i="day"></span> 2–5</div></div>
+      <div class="step"><div class="n">IV</div><h3 data-i="s4h"></h3><p data-i="s4p"></p><div class="d"><span data-i="day"></span> 5–9</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="papers">
+  <div class="wrap papers">
+    <div>
+      <div class="label" data-i="pap.kicker"></div>
+      <h2 style="font-size:clamp(36px,4.6vw,64px);line-height:1.02;margin:20px 0 36px" data-i="pap.h"></h2>
+      <ul class="doclist" id="docs"></ul>
+    </div>
+    <div>
+      <p class="quote" data-i="quote"></p>
+      <div class="sig"><span class="ln"></span><div><div style="font-family:var(--display);font-size:22px">Ronny Gebauer</div><div class="label" data-i="founder"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="delivery" style="background:var(--panel)">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">04 · <span data-i="nav.delivery"></span></div>
+      <div><h2 data-i="del.h"></h2><p data-i="del.p"></p></div>
+    </div>
+    <div class="tbl"><table>
+      <thead><tr><th data-i="th.city"></th><th data-i="th.country"></th><th class="r" data-i="map.dist"></th><th style="padding-left:24px" data-i="th.route"></th><th class="r" data-i="th.door"></th></tr></thead>
+      <tbody id="dtable"></tbody>
+    </table></div>
+    <div class="compliance"><div class="mk" aria-hidden="true"></div><p data-i="comp"></p></div>
+  </div>
+</section>
+
+<section id="fleet">
+  <div class="wrap">
+    <div class="head">
+      <div class="label">05 · <span data-i="nav.fleet"></span></div>
+      <div><h2 data-i="fl.h"></h2><p data-i="fl.p"></p></div>
+    </div>
+    <div class="fleet">
+      <figure class="fleet-img"><img src="img/fleet-car-transporters.jpg" alt="Gebauer car transporters"></figure>
+      <div class="fleet-stats">
+        <div><b class="num">3</b><span class="label" data-i="led.a"></span><p data-i="fl.s1"></p></div>
+        <div><b class="num">17</b><span class="label" data-i="led.b"></span><p data-i="fl.s2"></p></div>
+        <div><b class="num">CH</b><span class="label" data-i="fl.s3l"></span><p data-i="fl.s3"></p></div>
+        <button class="btn solid" data-order=""><span data-i="cta.order"></span> <span class="arr"></span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" style="background:var(--panel)">
+  <div class="wrap about">
+    <div class="portrait" id="portrait"><span class="mono">RG</span><span class="cap label" data-i="about.photo"></span></div>
+    <div>
+      <div class="label">06 · <span data-i="nav.about"></span></div>
+      <h2 style="margin-top:20px" data-i="about.h"></h2>
+      <p data-i="about.p1"></p>
+      <p data-i="about.p2"></p>
+      <div class="sig"><span class="ln"></span><div><div style="font-family:var(--display);font-size:22px">Ronny Gebauer</div><div class="label" data-i="founder"></div></div></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <div class="brand" style="margin-bottom:22px"><img class="crest-lg" src="img/gebauer-wappen-klein.png" alt="Gebauer Swiss Automobiles" width="96" height="121"></div>
+        <p style="max-width:34ch"><span data-i="foot.p"></span> <span data-i="foot.brand"></span></p>
+      </div>
+      <div><h4 data-i="imp.contact"></h4><a href="mailto:info@pontem-cars.com">info@pontem-cars.com</a><a href="tel:+41793593689">+41 79 359 36 89</a></div>
+      <div><h4 data-i="foot.company"></h4><p>Ronny Gebauer<br>Viscosestrasse 46<br>CH-9443 Widnau</p></div>
+      <div><h4 data-i="foot.lang"></h4><p>English · Deutsch · Українська<br>Polski · Română · Srpski</p></div>
+    </div>
+    <div class="imp" id="impressum">
+      <div><h4 data-i="imp.h"></h4>Ronny Gebauer<br><span data-i="imp.sole"></span><br>Viscosestrasse 46<br>CH-9443 Widnau<br><span data-i="imp.ch"></span></div>
+      <div><h4 data-i="imp.contact"></h4><a href="mailto:info@pontem-cars.com">info@pontem-cars.com</a><br><a href="tel:+41793593689">+41 79 359 36 89</a><br><br><span data-i="imp.resp"></span>: Ronny Gebauer</div>
+      <div class="imp-txt">
+        <div><h4 data-i="imp.d1h"></h4><p data-i="imp.d1"></p></div>
+        <div><h4 data-i="imp.d2h"></h4><p data-i="imp.d2"></p></div>
+        <div><h4 data-i="imp.d3h"></h4><p data-i="imp.d3"></p></div>
+      </div>
+    </div>
+    <div class="legal"><span>© 2026 Gebauer Swiss Automobiles · Ronny Gebauer</span><span><a href="#impressum" data-i="imp.link"></a> · <span data-i="foot.priv"></span> · <span data-i="foot.terms"></span></span></div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dtitle">
+  <div class="dh">
+    <div><div class="label" id="dkicker"></div><h3 id="dtitle"></h3></div>
+    <button class="x" id="close" aria-label="Close"></button>
+  </div>
+  <div class="prog" id="prog"><div data-i="prog1"></div><div data-i="nav.delivery"></div><div data-i="prog3"></div><div data-i="prog4"></div></div>
+  <form class="db" id="form" novalidate>
+    <div class="pane on" data-step="0">
+      <div class="field"><label for="f-brand" data-i="f.brand"></label><select id="f-brand" name="brand"></select></div>
+      <div class="row">
+        <div class="field"><label for="f-want" data-i="f.want"></label><input id="f-want" name="want" placeholder="911 Turbo S"></div>
+        <div class="field"><label for="f-budget" data-i="f.budget"></label><input id="f-budget" name="budget" inputmode="numeric" placeholder="250'000"></div>
+      </div>
+      <div class="field"><label for="f-spec" data-i="f.spec"></label><textarea id="f-spec" name="spec" data-ph="f.specPh"></textarea></div>
+      <div class="label" style="margin:8px 0 12px" data-i="f.handover"></div>
+      <div class="opt">
+        <label><input type="radio" name="handover" value="door" checked><div><b data-i="h1b"></b><span data-i="h1s"></span></div></label>
+        <label><input type="radio" name="handover" value="collect"><div><b data-i="h2b"></b><span data-i="h2s"></span></div></label>
+      </div>
+    </div>
+    <div class="pane" data-step="1">
+      <div class="field"><label for="f-country" data-i="f.country"></label><select id="f-country" name="country"></select></div>
+      <div class="row">
+        <div class="field"><label for="f-city" data-i="f.city"></label><input id="f-city" name="city" autocomplete="address-level2"></div>
+        <div class="field"><label for="f-zip" data-i="f.zip"></label><input id="f-zip" name="zip" autocomplete="postal-code"></div>
+      </div>
+      <div class="field"><label for="f-street" data-i="f.street"></label><input id="f-street" name="street" autocomplete="street-address"></div>
+      <div class="field"><label for="f-date" data-i="f.date"></label><input id="f-date" name="date" type="date"></div>
+      <div class="field"><label for="f-notes" data-i="f.notes"></label><textarea id="f-notes" name="notes" data-ph="f.notesPh"></textarea></div>
+    </div>
+    <div class="pane" data-step="2">
+      <div class="row">
+        <div class="field"><label for="f-first" data-i="f.first"></label><input id="f-first" name="first" autocomplete="given-name"></div>
+        <div class="field"><label for="f-last" data-i="f.last"></label><input id="f-last" name="last" autocomplete="family-name"></div>
+      </div>
+      <div class="field"><label for="f-company" data-i="f.company"></label><input id="f-company" name="company" autocomplete="organization"></div>
+      <div class="row">
+        <div class="field"><label for="f-email" data-i="f.email"></label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+        <div class="field"><label for="f-phone" data-i="f.phone"></label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="field"><label for="f-lang" data-i="f.lang"></label><select id="f-lang" name="lang"><option>English</option><option>Deutsch</option><option>Українська</option><option>Polski</option><option>Română</option><option>Srpski</option></select></div>
+      <div class="label" style="margin:8px 0 12px" data-i="f.pay"></div>
+      <div class="opt">
+        <label><input type="radio" name="pay" value="bank" checked><div><b data-i="p1b"></b><span data-i="p1s"></span></div></label>
+      </div>
+    </div>
+    <div class="pane" data-step="3">
+      <dl class="summary" id="summary"></dl>
+      <div style="margin-top:24px">
+        <label class="check"><input type="checkbox" id="c-end"> <span data-i="c.end"></span></label>
+        <label class="check"><input type="checkbox" id="c-terms"> <span data-i="c.terms"></span></label>
+      </div>
+    </div>
+    <div class="pane" data-step="4"><div class="done-box" id="doneBox"></div></div>
+    <div class="err" id="err" role="alert"></div>
+  </form>
+  <div class="df" id="foot">
+    <button class="btn ghost" id="back" type="button" data-i="back"></button>
+    <button class="btn solid" id="next" type="button"></button>
+  </div>
+</aside>
+
+<script>
+/* ===================== CONFIG ===================== */
+// 'mailto'    → opens the client's mail app with the full order (works everywhere)
+// 'netlify'   → Netlify Forms: every order arrives as an email via the Netlify dashboard
+// 'formspree' → set ENDPOINT to your Formspree URL, e.g. https://formspree.io/f/xxxxxx
+const ORDER_MODE = 'mailto';
+const ENDPOINT   = '';
+const ORDER_EMAIL = 'info@pontem-cars.com';
+const ABOUT_PHOTO = 'img/ronny-gebauer.jpg';   // e.g. 'img/ronny-gebauer.jpg'
+
+/* ===================== LANGUAGES ===================== */
+const LANGS = ['en','de','uk','pl','ro','sr'];
+const LANG_LABEL = {en:'EN',de:'DE',uk:'УКР',pl:'PL',ro:'RO',sr:'SRB'};
+const LANG_NAME  = {en:'English',de:'Deutsch',uk:'Українська',pl:'Polski',ro:'Română',sr:'Srpski'};
+/* key: [en, de, uk, pl, ro, sr] */
+const T = {
+'imp.link':['Legal notice','Impressum','Правова інформація','Nota prawna','Informații legale','Impresum'],
+'imp.sole':['Sole proprietorship','Einzelunternehmen','Індивідуальний підприємець','Jednoosobowa działalność','Întreprindere individuală','Preduzetnik'],
+'imp.resp':['Responsible for content','Verantwortlich für den Inhalt','Відповідальний за зміст','Odpowiedzialny za treść','Responsabil pentru conținut','Odgovoran za sadržaj'],
+'imp.d1h':['DISCLAIMER','HAFTUNGSAUSSCHLUSS','ВІДМОВА ВІД ВІДПОВІДАЛЬНОСТІ','WYŁĄCZENIE ODPOWIEDZIALNOŚCI','DECLINAREA RĂSPUNDERII','ODRICANJE OD ODGOVORNOSTI'],
+'imp.d1':['The content of this website is compiled with care. We accept no liability for the accuracy, completeness or timeliness of the information. Distances, delivery times and images are indicative; only the details in the written order confirmation are binding.','Die Inhalte dieser Website werden mit Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität der Informationen übernehmen wir keine Gewähr. Distanzen, Lieferzeiten und Bilder sind Richtwerte bzw. Symbolbilder; verbindlich sind allein die Angaben in der schriftlichen Auftragsbestätigung.','Зміст цього сайту складено ретельно. Ми не гарантуємо точність, повноту та актуальність інформації. Відстані, терміни доставки та зображення є орієнтовними; обов’язковими є лише дані в письмовому підтвердженні замовлення.','Treści tej strony są przygotowywane starannie. Nie gwarantujemy poprawności, kompletności ani aktualności informacji. Odległości, terminy dostawy i zdjęcia mają charakter orientacyjny; wiążące są wyłącznie dane w pisemnym potwierdzeniu zamówienia.','Conținutul acestui site este realizat cu grijă. Nu garantăm exactitatea, completitudinea sau actualitatea informațiilor. Distanțele, termenele de livrare și imaginile sunt orientative; obligatorii sunt doar datele din confirmarea scrisă a comenzii.','Sadržaj ovog sajta pripremljen je pažljivo. Ne garantujemo tačnost, potpunost niti ažurnost informacija. Udaljenosti, rokovi isporuke i slike su okvirni; obavezujući su isključivo podaci u pisanoj potvrdi porudžbine.'],
+'imp.d2h':['EXTERNAL LINKS','HAFTUNG FÜR LINKS','ЗОВНІШНІ ПОСИЛАННЯ','LINKI ZEWNĘTRZNE','LINKURI EXTERNE','SPOLJNI LINKOVI'],
+'imp.d2':['We have no influence on the content of linked third-party websites and accept no responsibility for it.','Für Inhalte verlinkter Websites Dritter sind ausschliesslich deren Betreiber verantwortlich; wir übernehmen dafür keine Haftung.','Ми не впливаємо на зміст сторонніх сайтів, на які є посилання, і не несемо за нього відповідальності.','Nie mamy wpływu na treść stron osób trzecich, do których prowadzą linki, i nie ponosimy za nią odpowiedzialności.','Nu avem influență asupra conținutului site-urilor terților la care trimit linkurile și nu ne asumăm răspunderea pentru acesta.','Nemamo uticaja na sadržaj povezanih sajtova trećih lica i ne preuzimamo odgovornost za njega.'],
+'imp.d3h':['COPYRIGHT','URHEBERRECHTE','АВТОРСЬКІ ПРАВА','PRAWA AUTORSKIE','DREPTURI DE AUTOR','AUTORSKA PRAVA'],
+'imp.d3':['Texts, logo and design of this website are protected by copyright. Any use requires prior written consent. Brand names shown belong to their respective owners and only describe the vehicles we source.','Texte, Logo und Gestaltung dieser Website sind urheberrechtlich geschützt. Jede Verwendung bedarf der vorherigen schriftlichen Zustimmung. Genannte Markennamen gehören ihren jeweiligen Inhabern und dienen nur der Beschreibung der Fahrzeuge, die wir beschaffen.','Тексти, логотип і дизайн сайту захищені авторським правом. Будь-яке використання потребує попередньої письмової згоди. Згадані торгові марки належать їхнім власникам і лише описують авто, які ми знаходимо.','Teksty, logo i projekt tej strony są chronione prawem autorskim. Każde wykorzystanie wymaga uprzedniej pisemnej zgody. Wymienione marki należą do ich właścicieli i służą wyłącznie do opisu sprowadzanych przez nas aut.','Textele, logoul și designul acestui site sunt protejate prin drepturi de autor. Orice utilizare necesită acordul prealabil scris. Mărcile menționate aparțin proprietarilor lor și descriu doar mașinile pe care le aducem.','Tekstovi, logo i dizajn ovog sajta zaštićeni su autorskim pravom. Svaka upotreba zahteva prethodnu pisanu saglasnost. Navedene marke pripadaju njihovim vlasnicima i služe samo za opis automobila koje nabavljamo.'],
+'nav.brands':['Brands','Marken','Марки','Marki','Mărci','Marke'],
+'nav.fleet':['Fleet','Flotte','Автопарк','Flota','Flotă','Flota'],
+'led.a':['Own car transporters','Eigene Autotransporter','Власні автовози','Własne lawety','Transportoare proprii','Sopstvena transportera'],
+'led.b':['Employees','Mitarbeitende','Співробітників','Pracowników','Angajați','Zaposlenih'],
+'br.h':['The marques we source for you.','Die Marken, die wir für Sie beschaffen.','Марки, які ми знаходимо для вас.','Marki, które dla Ciebie sprowadzamy.','Mărcile pe care le aducem pentru tine.','Marke koje nabavljamo za vas.'],
+'br.p':['Any model, any specification, new or pre-owned. Choose a marque, tell us your wish, and we find the right car through our partners in Switzerland.','Jedes Modell, jede Ausstattung, neu oder Occasion. Wählen Sie eine Marke, nennen Sie uns Ihren Wunsch, und wir finden das passende Auto über unsere Partner in der Schweiz.','Будь-яка модель, будь-яка комплектація, нове чи вживане. Оберіть марку, опишіть бажання, і ми знайдемо відповідне авто через наших партнерів у Швейцарії.','Każdy model, każde wyposażenie, nowe lub używane. Wybierz markę, opisz swoje życzenie, a my znajdziemy właściwe auto przez naszych partnerów w Szwajcarii.','Orice model, orice echipare, nouă sau rulată. Alege o marcă, spune-ne ce îți dorești și găsim mașina potrivită prin partenerii noștri din Elveția.','Bilo koji model, bilo koja oprema, novo ili polovno. Izaberite marku, recite nam želju, a mi pronalazimo pravi automobil preko partnera u Švajcarskoj.'],
+'br.cta':['Request','Anfragen','Запит','Zapytaj','Solicită','Zatražite'],
+'br.other':['Another marque','Andere Marke','Інша марка','Inna marka','Altă marcă','Druga marka'],
+'br.otherM':['Bugatti, Pagani, Koenigsegg and more: we source it too.','Bugatti, Pagani, Koenigsegg und mehr: beschaffen wir auch.','Bugatti, Pagani, Koenigsegg та інші: знайдемо й їх.','Bugatti, Pagani, Koenigsegg i inne: też je sprowadzimy.','Bugatti, Pagani, Koenigsegg și altele: le aducem și pe ele.','Bugatti, Pagani, Koenigsegg i druge: nabavljamo i njih.'],
+'f.brand':['Marque','Marke','Марка','Marka','Marcă','Marka'],
+'fl.h':['Our own fleet. Our own people.','Eigene Flotte. Eigenes Team.','Власний автопарк. Власна команда.','Własna flota. Własny zespół.','Flotă proprie. Echipă proprie.','Sopstvena flota. Sopstveni tim.'],
+'fl.p':['Your car never travels with strangers. Three car transporters and a team of 17 handle sourcing, paperwork and delivery in-house, together with leading dealers in Switzerland.','Ihr Auto reist nie mit Fremden. Drei Autotransporter und ein Team von 17 Mitarbeitenden erledigen Beschaffung, Papiere und Lieferung selbst, gemeinsam mit führenden Händlern in der Schweiz.','Ваше авто ніколи не їде з незнайомцями. Три автовози і команда з 17 людей самі займаються пошуком, документами та доставкою разом із провідними дилерами Швейцарії.','Twoje auto nigdy nie podróżuje z obcymi. Trzy lawety i 17-osobowy zespół same zajmują się zakupem, dokumentami i dostawą, razem z wiodącymi dealerami w Szwajcarii.','Mașina ta nu călătorește niciodată cu străini. Trei transportoare și o echipă de 17 oameni se ocupă intern de achiziție, acte și livrare, împreună cu dealeri de top din Elveția.','Vaš automobil nikada ne putuje sa strancima. Tri transportera i tim od 17 ljudi sami obavljaju nabavku, papirologiju i isporuku, zajedno sa vodećim dilerima u Švajcarskoj.'],
+'fl.s1':['Our own trucks, our own drivers. No subcontractors between the dealer and your door.','Eigene Lastwagen, eigene Fahrer. Keine Subunternehmer zwischen Händler und Ihrer Tür.','Власні вантажівки, власні водії. Жодних субпідрядників між дилером і вашими дверима.','Własne ciężarówki, własni kierowcy. Żadnych podwykonawców między dealerem a Twoimi drzwiami.','Camioane proprii, șoferi proprii. Fără subcontractori între dealer și ușa ta.','Sopstveni kamioni, sopstveni vozači. Bez podizvođača između dilera i vaših vrata.'],
+'fl.s2':['Sourcing, customs, logistics and handover. One team, one contact person for you.','Beschaffung, Zoll, Logistik und Übergabe. Ein Team, eine Ansprechperson für Sie.','Пошук, митниця, логістика і передача. Одна команда, одна контактна особа для вас.','Zakup, cło, logistyka i przekazanie. Jeden zespół, jedna osoba kontaktowa dla Ciebie.','Achiziție, vamă, logistică și predare. O echipă, o singură persoană de contact.','Nabavka, carina, logistika i predaja. Jedan tim, jedna kontakt osoba za vas.'],
+'fl.s3l':['Partner dealers','Partnerhändler','Дилери-партнери','Dealerzy partnerzy','Dealeri parteneri','Partnerski dileri'],
+'fl.s3':['We work with leading authorised dealers in Switzerland.','Wir arbeiten mit führenden Markenhändlern in der Schweiz.','Ми співпрацюємо з провідними офіційними дилерами Швейцарії.','Współpracujemy z wiodącymi autoryzowanymi dealerami w Szwajcarii.','Lucrăm cu dealeri autorizați de top din Elveția.','Sarađujemo sa vodećim ovlašćenim dilerima u Švajcarskoj.'],
+'nav.collection':['Collection','Kollektion','Колекція','Kolekcja','Colecție','Kolekcija'],
+'nav.process':['Process','Ablauf','Процес','Proces','Proces','Proces'],
+'nav.papers':['Papers','Papiere','Документи','Dokumenty','Acte','Dokumenta'],
+'nav.delivery':['Delivery','Lieferung','Доставка','Dostawa','Livrare','Isporuka'],
+'nav.about':['About','Über uns','Про нас','O nas','Despre','O nama'],
+'cta.order':['Order my car','Mein Auto bestellen','Замовити авто','Zamów moje auto','Comandă mașina','Naruči automobil'],
+'hero.kicker':['Zürich to your driveway · Founded by Ronny Gebauer','Von Zürich in Ihre Einfahrt · Gegründet von Ronny Gebauer','З Цюриха до вашого під’їзду · Засновник Ронні Гебауер','Z Zurychu na Twój podjazd · Założyciel Ronny Gebauer','Din Zürich până la aleea ta · Fondat de Ronny Gebauer','Od Ciriha do vašeg prilaza · Osnivač Ronny Gebauer'],
+'hero.l1':['Swiss cars.','Schweizer Autos.','Швейцарські авто.','Szwajcarskie auta.','Mașini elvețiene.','Švajcarski automobili.'],
+'hero.l2':['Delivered to <em>your</em> door.','Geliefert bis vor <em>Ihre</em> Tür.','Доставлені до <em>ваших</em> дверей.','Dostarczone pod <em>Twoje</em> drzwi.','Livrate la ușa <em>ta</em>.','Isporučeni do <em>vaših</em> vrata.'],
+'hero.l3':['Every paper done.','Alle Papiere erledigt.','Усі документи готові.','Wszystkie dokumenty załatwione.','Toate actele rezolvate.','Sva dokumenta sređena.'],
+'hero.lede':['Tell us the car you want. Through our network of leading dealers in Switzerland we source it, clear export and import in your name, and deliver it with our own car transporters to your door.','Sagen Sie uns, welches Auto Sie wollen. Über unser Netzwerk führender Händler in der Schweiz beschaffen wir es, erledigen Aus- und Einfuhr auf Ihren Namen und liefern es mit unseren eigenen Autotransportern bis vor Ihre Tür.','Скажіть нам, яке авто ви хочете. Через мережу провідних дилерів у Швейцарії ми знаходимо його, оформлюємо експорт та імпорт на ваше ім’я і доставляємо власними автовозами до ваших дверей.','Powiedz nam, jakie auto chcesz. Dzięki sieci wiodących dealerów w Szwajcarii znajdujemy je, załatwiamy wywóz i przywóz na Twoje nazwisko i dostarczamy własnymi lawetami pod Twoje drzwi.','Spune-ne ce mașină îți dorești. Prin rețeaua noastră de dealeri de top din Elveția o găsim, ne ocupăm de export și import pe numele tău și o livrăm cu propriile transportoare la ușa ta.','Recite nam koji automobil želite. Preko naše mreže vodećih dilera u Švajcarskoj pronalazimo ga, sređujemo izvoz i uvoz na vaše ime i isporučujemo ga sopstvenim transporterima do vaših vrata.'],
+'hero.view':['Explore the brands','Zu den Marken','Переглянути марки','Zobacz marki','Vezi mărcile','Pogledajte marke'],
+'led.1b':['1st','1.','1-й','1.','1-ul','1.'],
+'led.1':['Swiss owner','Schweizer Hand','швейцарський власник','właściciel w Szwajcarii','proprietar elvețian','švajcarski vlasnik'],
+'led.2':['Point inspection','Punkte-Prüfung','пунктів перевірки','punktów kontroli','puncte de inspecție','tačaka provere'],
+'led.3':['Working days to door','Arbeitstage bis zur Tür','робочих днів до дверей','dni roboczych do drzwi','zile lucrătoare până la ușă','radnih dana do vrata'],
+'map.live':['Live route','Live-Route','Маршрут наживо','Trasa na żywo','Rută live','Ruta uživo'],
+'map.dest':['Destination','Ziel','Пункт','Cel','Destinație','Odredište'],
+'map.dist':['Distance','Distanz','Відстань','Dystans','Distanță','Udaljenost'],
+'map.door':['Door','Tür','До дверей','Pod drzwi','La ușă','Do vrata'],
+'map.days':['days','Tage','днів','dni','zile','dana'],
+'col.h':['Currently in Switzerland, ready to cross.','Jetzt in der Schweiz, bereit für die Grenze.','Зараз у Швейцарії, готові до кордону.','Teraz w Szwajcarii, gotowe do drogi.','Acum în Elveția, gata de drum.','Trenutno u Švajcarskoj, spremni za put.'],
+'col.p':[
+ 'Each car is Swiss-registered, inspected, and photographed in daylight before it is listed. Prices are in Swiss francs ex works Zürich. Delivery, papers and duties are quoted to your address in the order.',
+ 'Jedes Fahrzeug ist in der Schweiz eingelöst, geprüft und bei Tageslicht fotografiert, bevor es hier erscheint. Preise in Schweizer Franken ab Zürich. Lieferung, Papiere und Abgaben bis zu Ihrer Adresse offerieren wir in der Bestellung.',
+ 'Кожне авто зареєстроване у Швейцарії, перевірене та сфотографоване при денному світлі, перш ніж потрапити сюди. Ціни у швейцарських франках, франко Цюрих. Доставку, документи та мита до вашої адреси ми розраховуємо в замовленні.',
+ 'Każde auto jest zarejestrowane w Szwajcarii, sprawdzone i sfotografowane w świetle dziennym, zanim trafi na stronę. Ceny w frankach szwajcarskich, loco Zurych. Dostawę, dokumenty i cła pod Twój adres wyceniamy w zamówieniu.',
+ 'Fiecare mașină este înmatriculată în Elveția, inspectată și fotografiată la lumina zilei înainte de a fi listată. Prețuri în franci elvețieni, franco Zürich. Livrarea, actele și taxele până la adresa ta le calculăm în comandă.',
+ 'Svaki automobil je registrovan u Švajcarskoj, pregledan i fotografisan na dnevnom svetlu pre objave. Cene su u švajcarskim francima, franko Cirih. Isporuku, dokumenta i carine do vaše adrese obračunavamo u porudžbini.'],
+'col.all':['All','Alle','Усі','Wszystkie','Toate','Sve'],
+'col.note':['Example inventory for the launch with illustrative images. Photos of the actual vehicle and its VIN are sent with every offer.','Beispielbestand für den Start mit Symbolbildern. Fotos des tatsächlichen Fahrzeugs und die Fahrgestellnummer erhalten Sie mit jeder Offerte.','Приклад асортименту для запуску з ілюстративними фото. Фото конкретного авто та VIN ви отримаєте з кожною пропозицією.','Przykładowa oferta na start ze zdjęciami poglądowymi. Zdjęcia konkretnego auta i numer VIN otrzymasz z każdą ofertą.','Stoc exemplificativ pentru lansare, cu imagini ilustrative. Fotografiile mașinii reale și seria VIN le primești cu fiecare ofertă.','Primer ponude za početak sa ilustrativnim fotografijama. Fotografije stvarnog automobila i VIN broj dobijate uz svaku ponudu.'],
+'car.year':['Year','Jahrgang','Рік','Rok','An','Godište'],
+'car.km':['Mileage','Kilometer','Пробіг','Przebieg','Kilometraj','Kilometraža'],
+'car.power':['Power','Leistung','Потужність','Moc','Putere','Snaga'],
+'car.hp':['PS','PS','к.с.','KM','CP','KS'],
+'car.order':['Order to my door','An meine Tür bestellen','Замовити з доставкою','Zamów pod drzwi','Comandă la ușă','Naruči do vrata'],
+'car.ask':['Ask a question','Frage stellen','Поставити питання','Zadaj pytanie','Pune o întrebare','Postavite pitanje'],
+'car.sym':['Illustrative image','Symbolbild','Ілюстративне фото','Zdjęcie poglądowe','Imagine ilustrativă','Ilustrativna fotografija'],
+'car.stock':['STOCK','BESTAND','АРТ.','NR','STOC','ŠIFRA'],
+'tag.first':['1st owner','1. Hand','1-й власник','1. właściciel','Primul proprietar','Prvi vlasnik'],
+'tag.swiss':['Swiss delivered','Schweizer Auslieferung','Поставлено у Швейцарії','Salon Szwajcaria','Livrat în Elveția','Isporučen u Švajcarskoj'],
+'tag.svc':['Full service history','Lückenloses Serviceheft','Повна сервісна історія','Pełna historia serwisowa','Istoric service complet','Kompletna servisna istorija'],
+'tag.noacc':['Accident-free','Unfallfrei','Без ДТП','Bezwypadkowy','Fără accidente','Bez udesa'],
+'tag.mfk':['Fresh Swiss MOT (MFK)','Ab frischer MFK','Свіжий техогляд (MFK)','Świeży przegląd (MFK)','ITP elvețian nou (MFK)','Svež tehnički pregled (MFK)'],
+'tag.warr':['Factory warranty','Werksgarantie','Заводська гарантія','Gwarancja fabryczna','Garanție de fabrică','Fabrička garancija'],
+'tag.asnew':['As new','Neuwertig','Як новий','Jak nowy','Ca nou','Kao nov'],
+'tag.lift':['Front axle lift','Liftsystem Vorderachse','Підйом передньої осі','Podnoszenie przedniej osi','Ridicare punte față','Podizanje prednje osovine'],
+'proc.h':['Four steps between Zürich and your door.','Vier Schritte zwischen Zürich und Ihrer Tür.','Чотири кроки між Цюрихом і вашими дверима.','Cztery kroki między Zurychem a Twoimi drzwiami.','Patru pași între Zürich și ușa ta.','Četiri koraka između Ciriha i vaših vrata.'],
+'proc.p':['One contact person from the first message to the handover of keys. You see every step in writing.','Eine Ansprechperson von der ersten Nachricht bis zur Schlüsselübergabe. Jeden Schritt erhalten Sie schriftlich.','Одна контактна особа від першого повідомлення до передачі ключів. Кожен крок ви бачите письмово.','Jedna osoba kontaktowa od pierwszej wiadomości do przekazania kluczyków. Każdy krok otrzymujesz na piśmie.','O singură persoană de contact de la primul mesaj până la predarea cheilor. Primești fiecare pas în scris.','Jedna kontakt osoba od prve poruke do predaje ključeva. Svaki korak dobijate pisanim putem.'],
+'s1h':['Choose','Auswählen','Вибір','Wybór','Alegere','Izbor'],
+'s1p':['Tell us the marque, model and specification you want. We confirm price and availability from our partner network within 24 hours. A deposit of at least 55 % secures your car.','Nennen Sie uns Marke, Modell und Ausstattung. Wir bestätigen Preis und Verfügbarkeit aus unserem Partnernetzwerk innert 24 Stunden. Mit einer Anzahlung von mindestens 55 % ist Ihr Auto reserviert.','Вкажіть марку, модель і комплектацію. Ми підтвердимо ціну та наявність у нашій партнерській мережі протягом 24 годин. Передоплата щонайменше 55 % закріплює авто за вами.','Podaj markę, model i wyposażenie. Cenę i dostępność w naszej sieci partnerów potwierdzamy w ciągu 24 godzin. Zaliczka w wysokości co najmniej 55 % rezerwuje Twoje auto.','Spune-ne marca, modelul și echiparea. Confirmăm prețul și disponibilitatea din rețeaua noastră de parteneri în 24 de ore. Un avans de minimum 55 % îți rezervă mașina.','Navedite marku, model i opremu. Cenu i dostupnost iz naše partnerske mreže potvrđujemo u roku od 24 sata. Avans od najmanje 55 % rezerviše vaš automobil.'],
+'s2h':['Inspect','Prüfen','Перевірка','Inspekcja','Inspecție','Pregled'],
+'s2p':['Independent 150-point inspection, service history check, paint-depth readings, and a full photo and video report sent to you.','Unabhängige 150-Punkte-Prüfung, Kontrolle der Servicehistorie, Lackschichtmessung und ein vollständiger Foto- und Videobericht für Sie.','Незалежна перевірка за 150 пунктами, аналіз сервісної історії, вимірювання товщини лаку та повний фото- і відеозвіт для вас.','Niezależna kontrola 150 punktów, weryfikacja historii serwisowej, pomiar grubości lakieru oraz pełny raport foto i wideo.','Inspecție independentă în 150 de puncte, verificarea istoricului service, măsurarea grosimii vopselei și un raport foto-video complet.','Nezavisan pregled od 150 tačaka, provera servisne istorije, merenje debljine laka i kompletan foto i video izveštaj.'],
+'s3h':['Clear','Verzollen','Митниця','Odprawa','Vămuire','Carinjenje'],
+'s3p':['Swiss export declaration, transit documents, and import clearance in your country, prepared by our customs partners in your name.','Schweizer Ausfuhrdeklaration, Transitdokumente und Einfuhrverzollung in Ihrem Land, vorbereitet von unseren Zollpartnern auf Ihren Namen.','Швейцарська експортна декларація, транзитні документи та імпортне розмитнення у вашій країні, підготовлені нашими митними партнерами на ваше ім’я.','Szwajcarska deklaracja wywozowa, dokumenty tranzytowe i odprawa importowa w Twoim kraju, przygotowane przez naszych partnerów celnych na Twoje nazwisko.','Declarația de export elvețiană, documentele de tranzit și vămuirea la import în țara ta, pregătite de partenerii noștri vamali pe numele tău.','Švajcarska izvozna deklaracija, tranzitna dokumenta i uvozno carinjenje u vašoj zemlji, koje na vaše ime pripremaju naši carinski partneri.'],
+'s4h':['Deliver','Liefern','Доставка','Dostawa','Livrare','Isporuka'],
+'s4p':['Delivered on one of our own car transporters, fully insured. Handover at your door with a walk-around and the complete document folder.','Lieferung mit einem unserer eigenen Autotransporter, voll versichert. Übergabe an Ihrer Tür mit Rundgang und dem kompletten Dokumentenordner.','Доставка одним із наших власних автовозів, повна страховка. Передача біля ваших дверей з оглядом і повною текою документів.','Dostawa jedną z naszych własnych lawet, pełne ubezpieczenie. Przekazanie pod drzwiami z obchodem auta i kompletną teczką dokumentów.','Livrare cu unul dintre transportoarele noastre, asigurare completă. Predare la ușă, cu prezentarea mașinii și dosarul complet de acte.','Isporuka jednim od naših transportera, potpuno osigurano. Predaja na vašim vratima uz obilazak vozila i kompletnu fasciklu dokumenata.'],
+'day':['DAY','TAG','ДЕНЬ','DZIEŃ','ZIUA','DAN'],
+'pap.kicker':['03 · Papers included','03 · Papiere inklusive','03 · Документи включено','03 · Dokumenty w cenie','03 · Acte incluse','03 · Dokumenta uključena'],
+'pap.h':['The folder that arrives with the keys.','Der Ordner, der mit den Schlüsseln kommt.','Тека, що приходить разом із ключами.','Teczka, która przychodzi razem z kluczykami.','Dosarul care vine odată cu cheile.','Fascikla koja stiže zajedno sa ključevima.'],
+'d1b':['Swiss export declaration','Schweizer Ausfuhrdeklaration','Швейцарська експортна декларація','Szwajcarska deklaracja wywozowa','Declarație de export elvețiană','Švajcarska izvozna deklaracija'],
+'d1s':['e-dec export, customs-stamped','e-dec Export, vom Zoll gestempelt','e-dec export, з митною печаткою','e-dec export, ostemplowana przez urząd celny','e-dec export, ștampilată de vamă','e-dec export, overena od carine'],
+'d2b':['Swiss registration, cancelled for export','Fahrzeugausweis, für Export annulliert','Швейцарське свідоцтво, анульоване для експорту','Szwajcarski dowód rejestracyjny, wyrejestrowany','Talon elvețian, radiat pentru export','Švajcarska saobraćajna, odjavljena za izvoz'],
+'d2s':['Fahrzeugausweis, deregistered','Beim Strassenverkehrsamt abgemeldet','Fahrzeugausweis, знято з обліку','Fahrzeugausweis, wyrejestrowany','Fahrzeugausweis, radiat','Fahrzeugausweis, odjavljen'],
+'d3b':['Certificate of Conformity','Konformitätsbescheinigung','Сертифікат відповідності','Świadectwo zgodności','Certificat de conformitate','Sertifikat o usaglašenosti'],
+'d3s':['COC or individual approval documents','COC oder Unterlagen zur Einzelabnahme','COC або документи індивідуального схвалення','COC lub dokumenty homologacji jednostkowej','COC sau acte de omologare individuală','COC ili dokumenta pojedinačne homologacije'],
+'d4b':['EUR.1 / origin declaration','EUR.1 / Ursprungserklärung','EUR.1 / декларація походження','EUR.1 / deklaracja pochodzenia','EUR.1 / declarație de origine','EUR.1 / izjava o poreklu'],
+'d4s':['For preferential duty where it applies','Für Präferenzzoll, wo anwendbar','Для пільгового мита, де це можливо','Dla preferencyjnego cła, jeśli przysługuje','Pentru taxe vamale preferențiale, unde se aplică','Za preferencijalnu carinu gde se primenjuje'],
+'d5b':['Import clearance and VAT receipt','Einfuhrverzollung und MWST-Beleg','Імпортне розмитнення та квитанція ПДВ','Odprawa importowa i potwierdzenie VAT','Vămuire la import și chitanță TVA','Uvozno carinjenje i potvrda o PDV-u'],
+'d5s':['Cleared in your country, in your name','In Ihrem Land, auf Ihren Namen','Розмитнено у вашій країні, на ваше ім’я','Odprawa w Twoim kraju, na Twoje nazwisko','Vămuit în țara ta, pe numele tău','Ocarinjeno u vašoj zemlji, na vaše ime'],
+'d6b':['Service book, inspection report, two keys','Serviceheft, Prüfbericht, zwei Schlüssel','Сервісна книжка, звіт перевірки, два ключі','Książka serwisowa, raport z inspekcji, dwa kluczyki','Carte service, raport de inspecție, două chei','Servisna knjižica, izveštaj o pregledu, dva ključa'],
+'d6s':['Plus transport insurance certificate','Plus Transportversicherungs-Zertifikat','А також сертифікат страхування перевезення','Plus certyfikat ubezpieczenia transportu','Plus certificatul de asigurare a transportului','Plus sertifikat o osiguranju transporta'],
+'incl':['INCL.','INKL.','ВКЛ.','W CENIE','INCLUS','UKLJ.'],
+'quote':['My job is the distance between a car I would drive myself and the address where you will drive it. Nothing in between should be your problem.','Meine Aufgabe ist die Strecke zwischen einem Auto, das ich selbst fahren würde, und der Adresse, an der Sie es fahren werden. Nichts dazwischen soll Ihr Problem sein.','Моя робота — відстань між авто, яке я сам би водив, і адресою, де його водитимете ви. Ніщо між ними не має бути вашою турботою.','Moją pracą jest droga między autem, którym sam chciałbym jeździć, a adresem, pod którym będziesz nim jeździć Ty. Nic pomiędzy nie powinno być Twoim problemem.','Treaba mea este distanța dintre o mașină pe care aș conduce-o eu însumi și adresa unde o vei conduce tu. Nimic din ce e între ele nu ar trebui să fie problema ta.','Moj posao je razdaljina između automobila koji bih i sam vozio i adrese na kojoj ćete ga vi voziti. Ništa između ne treba da bude vaša briga.'],
+'founder':['Founder','Gründer','Засновник','Założyciel','Fondator','Osnivač'],
+'del.h':['Door-to-door, quoted by distance.','Von Tür zu Tür, nach Distanz offeriert.','Від дверей до дверей, ціна за відстанню.','Od drzwi do drzwi, wycena według odległości.','Din ușă în ușă, preț în funcție de distanță.','Od vrata do vrata, cena prema udaljenosti.'],
+'del.p':['Indicative road distances from our Zürich hand-over point and typical time to your door, including customs clearance. Your order confirmation carries the binding date.','Richtwerte für die Strassendistanz ab unserem Übergabepunkt in Zürich und die übliche Dauer bis zu Ihrer Tür, inklusive Verzollung. Das verbindliche Datum steht in Ihrer Bestellbestätigung.','Орієнтовні відстані від нашого пункту в Цюриху і звичайний час до ваших дверей, включно з розмитненням. Точну дату вказано в підтвердженні замовлення.','Orientacyjne odległości drogowe od naszego punktu w Zurychu i typowy czas dostawy pod drzwi, wraz z odprawą celną. Wiążącą datę podajemy w potwierdzeniu zamówienia.','Distanțe rutiere orientative de la punctul nostru din Zürich și durata obișnuită până la ușa ta, inclusiv vămuirea. Data fermă apare în confirmarea comenzii.','Okvirne udaljenosti od našeg mesta preuzimanja u Cirihu i uobičajeno vreme do vaših vrata, uključujući carinjenje. Obavezujući datum stoji u potvrdi porudžbine.'],
+'th.city':['City','Stadt','Місто','Miasto','Oraș','Grad'],
+'th.country':['Country','Land','Країна','Kraj','Țară','Zemlja'],
+'th.route':['Route','Route','Маршрут','Trasa','Rută','Ruta'],
+'th.door':['To your door','Bis zur Tür','До дверей','Pod drzwi','Până la ușă','Do vrata'],
+'wd':['working days','Arbeitstage','робочих днів','dni roboczych','zile lucrătoare','radnih dana'],
+'comp':[
+ '<b>Sanctions compliance.</b> Gebauer Swiss Automobiles follows Swiss export law. We do not sell or deliver to Russia or Belarus, nor to persons or companies on the Swiss SECO sanctions list, and we do not route vehicles through third countries for onward delivery there. Every order includes an end-user declaration and identity check before the car leaves Switzerland.',
+ '<b>Sanktionskonformität.</b> Gebauer Swiss Automobiles hält sich an das Schweizer Exportrecht. Wir verkaufen und liefern nicht nach Russland oder Belarus, nicht an Personen oder Firmen auf der Sanktionsliste des SECO und leiten keine Fahrzeuge über Drittländer dorthin weiter. Jede Bestellung umfasst eine Endverbleibserklärung und eine Identitätsprüfung, bevor das Auto die Schweiz verlässt.',
+ '<b>Дотримання санкцій.</b> Gebauer Swiss Automobiles діє згідно зі швейцарським експортним законодавством. Ми не продаємо і не доставляємо авто до Росії чи Білорусі, особам або компаніям із санкційного списку SECO, а також не перенаправляємо авто туди через треті країни. Кожне замовлення включає декларацію кінцевого користувача та перевірку особи до того, як авто покине Швейцарію.',
+ '<b>Zgodność z sankcjami.</b> Gebauer Swiss Automobiles przestrzega szwajcarskiego prawa eksportowego. Nie sprzedajemy ani nie dostarczamy aut do Rosji ani Białorusi, osobom ani firmom z listy sankcyjnej SECO i nie kierujemy aut tam przez kraje trzecie. Każde zamówienie obejmuje deklarację użytkownika końcowego i weryfikację tożsamości, zanim auto opuści Szwajcarię.',
+ '<b>Conformitate cu sancțiunile.</b> Gebauer Swiss Automobiles respectă legislația elvețiană de export. Nu vindem și nu livrăm în Rusia sau Belarus, nici persoanelor sau firmelor de pe lista de sancțiuni SECO, și nu redirecționăm mașini acolo prin țări terțe. Fiecare comandă include o declarație de utilizator final și o verificare a identității înainte ca mașina să părăsească Elveția.',
+ '<b>Usklađenost sa sankcijama.</b> Gebauer Swiss Automobiles poštuje švajcarske propise o izvozu. Ne prodajemo i ne isporučujemo automobile u Rusiju ili Belorusiju, licima ili firmama sa SECO liste sankcija, niti ih preusmeravamo tamo preko trećih zemalja. Svaka porudžbina uključuje izjavu krajnjeg korisnika i proveru identiteta pre nego što automobil napusti Švajcarsku.'],
+'src.kicker':['05 · Private search','05 · Private Suche','05 · Приватний пошук','05 · Prywatne wyszukiwanie','05 · Căutare privată','05 · Privatna pretraga'],
+'src.h':['Not in the collection? We find it in Switzerland.','Nicht in der Kollektion? Wir finden es in der Schweiz.','Немає в колекції? Ми знайдемо його у Швейцарії.','Nie ma w kolekcji? Znajdziemy je w Szwajcarii.','Nu e în colecție? O găsim în Elveția.','Nema ga u kolekciji? Pronaći ćemo ga u Švajcarskoj.'],
+'src.p':['Tell us the model, specification and colour. We search the Swiss market, including cars that are never advertised, and send you a shortlist with inspection notes.','Nennen Sie uns Modell, Ausstattung und Farbe. Wir durchsuchen den Schweizer Markt, auch Autos, die nie inseriert werden, und senden Ihnen eine Auswahl mit Prüfnotizen.','Вкажіть модель, комплектацію та колір. Ми шукаємо на швейцарському ринку, зокрема авто, які ніколи не рекламуються, і надсилаємо вам добірку з нотатками перевірки.','Podaj model, wyposażenie i kolor. Przeszukujemy rynek szwajcarski, także auta, które nigdy nie trafiają do ogłoszeń, i wysyłamy Ci listę z notatkami z inspekcji.','Spune-ne modelul, echiparea și culoarea. Căutăm pe piața elvețiană, inclusiv mașini care nu sunt niciodată anunțate, și îți trimitem o selecție cu note de inspecție.','Navedite model, opremu i boju. Pretražujemo švajcarsko tržište, uključujući automobile koji se nikad ne oglašavaju, i šaljemo vam uži izbor sa beleškama o pregledu.'],
+'src.btn':['Start a search brief','Suchauftrag starten','Почати пошук','Rozpocznij wyszukiwanie','Începe o căutare','Pokrenite pretragu'],
+'src.note':['Reply within 24 hours. No fee for the shortlist.','Antwort innert 24 Stunden. Die Auswahl ist kostenlos.','Відповідь протягом 24 годин. Добірка безкоштовна.','Odpowiedź w ciągu 24 godzin. Lista jest bezpłatna.','Răspuns în 24 de ore. Selecția este gratuită.','Odgovor u roku od 24 sata. Uži izbor je besplatan.'],
+'about.h':['The bridge builder.','Der Brückenbauer.','Той, хто будує мости.','Budowniczy mostów.','Constructorul de poduri.','Graditelj mostova.'],
+'about.p1':['Ronny Gebauer founded Gebauer Swiss Automobiles to connect two markets he knows: the Swiss market for well-kept, first-hand luxury cars, and clients in Eastern Europe who want exactly these cars without dealing with borders, customs and transport.','Ronny Gebauer hat Gebauer Swiss Automobiles gegründet, um zwei Märkte zu verbinden, die er kennt: den Schweizer Markt für gepflegte Luxusautos aus erster Hand und Kundinnen und Kunden in Osteuropa, die genau diese Autos wollen, ohne sich um Grenze, Zoll und Transport zu kümmern.','Ронні Гебауер заснував Gebauer Swiss Automobiles, щоб поєднати два ринки, які він знає: швейцарський ринок доглянутих люксових авто від першого власника та клієнтів у Східній Європі, які хочуть саме такі авто без клопоту з кордоном, митницею і транспортом.','Ronny Gebauer założył Gebauer Swiss Automobiles, aby połączyć dwa rynki, które zna: szwajcarski rynek zadbanych aut luksusowych od pierwszego właściciela oraz klientów w Europie Wschodniej, którzy chcą właśnie takich aut bez zajmowania się granicą, cłem i transportem.','Ronny Gebauer a fondat Gebauer Swiss Automobiles pentru a lega două piețe pe care le cunoaște: piața elvețiană de mașini de lux bine întreținute, de la primul proprietar, și clienții din Europa de Est care vor exact aceste mașini fără bătăi de cap cu granița, vama și transportul.','Ronny Gebauer je osnovao Gebauer Swiss Automobiles da poveže dva tržišta koja poznaje: švajcarsko tržište negovanih luksuznih automobila od prvog vlasnika i klijente u Istočnoj Evropi koji žele upravo takve automobile bez brige o granici, carini i transportu.'],
+'about.p2':['Every car passes through his hands before it travels. He speaks with you directly, from the first question to the handover at your door.','Jedes Auto geht durch seine Hände, bevor es reist. Er spricht direkt mit Ihnen, von der ersten Frage bis zur Übergabe an Ihrer Tür.','Кожне авто проходить через його руки, перш ніж вирушити в дорогу. Він спілкується з вами особисто, від першого питання до передачі біля ваших дверей.','Każde auto przechodzi przez jego ręce, zanim wyruszy w drogę. Rozmawia z Tobą bezpośrednio, od pierwszego pytania po przekazanie pod Twoimi drzwiami.','Fiecare mașină trece prin mâinile lui înainte de a pleca la drum. Vorbește direct cu tine, de la prima întrebare până la predarea la ușă.','Svaki automobil prođe kroz njegove ruke pre nego što krene na put. Sa vama razgovara lično, od prvog pitanja do predaje na vašim vratima.'],
+'about.photo':['Portrait follows','Porträt folgt','Фото незабаром','Zdjęcie wkrótce','Portret în curând','Portret uskoro'],
+'foot.p':['Swiss luxury automobiles, delivered with every paper to your door.','Schweizer Luxusautomobile, mit allen Papieren bis vor Ihre Tür.','Швейцарські люксові авто з усіма документами до ваших дверей.','Szwajcarskie auta luksusowe ze wszystkimi dokumentami pod Twoje drzwi.','Automobile de lux elvețiene, cu toate actele, la ușa ta.','Švajcarski luksuzni automobili, sa svim dokumentima, do vaših vrata.'],
+'foot.brand':['A brand of Ronny Gebauer.','Eine Marke von Ronny Gebauer.','Бренд Ronny Gebauer.','Marka Ronny Gebauer.','O marcă Ronny Gebauer.','Brend Ronny Gebauer.'],
+'foot.company':['COMPANY','FIRMA','КОМПАНІЯ','FIRMA','COMPANIE','KOMPANIJA'],
+'foot.lang':['LANGUAGES','SPRACHEN','МОВИ','JĘZYKI','LIMBI','JEZICI'],
+'foot.legal':['All prices CHF, ex works Zürich','Alle Preise in CHF, ab Zürich','Усі ціни в CHF, франко Цюрих','Wszystkie ceny w CHF, loco Zurych','Toate prețurile în CHF, franco Zürich','Sve cene u CHF, franko Cirih'],
+'foot.priv':['Privacy','Datenschutz','Конфіденційність','Prywatność','Confidențialitate','Privatnost'],
+'foot.terms':['Terms','AGB','Умови','Regulamin','Termeni','Uslovi'],
+'imp.h':['LEGAL NOTICE','IMPRESSUM','ПРАВОВА ІНФОРМАЦІЯ','NOTA PRAWNA','INFORMAȚII LEGALE','IMPRESUM'],
+'imp.op':['OPERATOR','BETREIBER','ОПЕРАТОР','OPERATOR','OPERATOR','OPERATER'],
+'imp.ch':['Switzerland','Schweiz','Швейцарія','Szwajcaria','Elveția','Švajcarska'],
+'imp.contact':['CONTACT','KONTAKT','КОНТАКТ','KONTAKT','CONTACT','KONTAKT'],
+'imp.reg':['REGISTER','HANDELSREGISTER','РЕЄСТР','REJESTR','REGISTRU','REGISTAR'],
+'imp.regP':['Commercial register of the Canton of St. Gallen','Handelsregister des Kantons St. Gallen','Торговий реєстр кантону Санкт-Галлен','Rejestr handlowy kantonu St. Gallen','Registrul comerțului, cantonul St. Gallen','Trgovinski registar kantona St. Gallen'],
+'d.kicker':['Order to your door','Bestellung bis an Ihre Tür','Замовлення з доставкою до дверей','Zamówienie z dostawą pod drzwi','Comandă cu livrare la ușă','Porudžbina sa isporukom do vrata'],
+'d.search':['Search brief','Suchauftrag','Запит на пошук','Zlecenie wyszukania','Cerere de căutare','Zahtev za pretragu'],
+'d.q':['Question about this car · reply within 24 h','Frage zu diesem Auto · Antwort innert 24 h','Питання про це авто · відповідь протягом 24 год','Pytanie o to auto · odpowiedź w 24 h','Întrebare despre această mașină · răspuns în 24 h','Pitanje o ovom automobilu · odgovor za 24 h'],
+'prog1':['Car','Auto','Авто','Auto','Mașina','Automobil'],
+'prog3':['Contact','Kontakt','Контакти','Kontakt','Contact','Kontakt'],
+'prog4':['Review','Prüfen','Перевірка','Podsumowanie','Verificare','Pregled'],
+'f.vehicle':['Vehicle','Fahrzeug','Автомобіль','Pojazd','Vehicul','Vozilo'],
+'f.searchOpt':['Private search: a car not listed','Private Suche: nicht gelistetes Auto','Приватний пошук: авто поза колекцією','Prywatne wyszukiwanie: auto spoza oferty','Căutare privată: mașină nelistată','Privatna pretraga: automobil van ponude'],
+'f.want':['Model wanted','Gewünschtes Modell','Бажана модель','Szukany model','Modelul dorit','Željeni model'],
+'f.budget':['Budget (CHF)','Budget (CHF)','Бюджет (CHF)','Budżet (CHF)','Buget (CHF)','Budžet (CHF)'],
+'f.spec':['Colour, year, specification','Farbe, Jahrgang, Ausstattung','Колір, рік, комплектація','Kolor, rocznik, wyposażenie','Culoare, an, echipare','Boja, godište, oprema'],
+'f.specPh':['Exterior, interior, year range, max. km, must-have options','Aussen, innen, Jahrgang, max. km, Muss-Optionen','Екстер’єр, салон, роки, макс. пробіг, обов’язкові опції','Nadwozie, wnętrze, roczniki, maks. km, wymagane opcje','Exterior, interior, ani, km max., opțiuni obligatorii','Spoljašnjost, enterijer, godišta, maks. km, obavezne opcije'],
+'f.handover':['Handover','Übergabe','Передача','Przekazanie','Predare','Preuzimanje'],
+'h1b':['Door delivery','Lieferung an die Tür','Доставка до дверей','Dostawa pod drzwi','Livrare la ușă','Isporuka do vrata'],
+'h1s':['Our own transporter to your address, papers cleared.','Unser eigener Transporter an Ihre Adresse, Papiere erledigt.','Наш власний автовоз за вашою адресою, документи оформлені.','Nasza laweta pod Twój adres, dokumenty załatwione.','Transportorul nostru la adresa ta, acte rezolvate.','Naš transporter na vašu adresu, dokumenta sređena.'],
+'h2b':['Collect in Zürich','Abholung in Zürich','Самовивіз у Цюриху','Odbiór w Zurychu','Ridicare din Zürich','Preuzimanje u Cirihu'],
+'h2s':['Export papers prepared, you drive it home.','Exportpapiere vorbereitet, Sie fahren selbst.','Експортні документи готові, ви їдете самі.','Dokumenty eksportowe gotowe, wracasz autem sam.','Acte de export pregătite, conduci tu acasă.','Izvozna dokumenta spremna, vi ga vozite kući.'],
+'f.country':['Country','Land','Країна','Kraj','Țara','Zemlja'],
+'f.selectCountry':['Select country','Land wählen','Оберіть країну','Wybierz kraj','Alege țara','Izaberite zemlju'],
+'f.other':['Other (we check and confirm)','Andere (wir prüfen und bestätigen)','Інша (ми перевіримо й підтвердимо)','Inny (sprawdzimy i potwierdzimy)','Alta (verificăm și confirmăm)','Druga (proverićemo i potvrditi)'],
+'f.city':['City','Ort','Місто','Miasto','Oraș','Grad'],
+'f.zip':['Postcode','PLZ','Індекс','Kod pocztowy','Cod poștal','Poštanski broj'],
+'f.street':['Street and number','Strasse und Nummer','Вулиця та номер','Ulica i numer','Strada și numărul','Ulica i broj'],
+'f.date':['Preferred delivery from','Gewünschte Lieferung ab','Бажана доставка з','Preferowana dostawa od','Livrare dorită din','Željena isporuka od'],
+'f.notes':['Access notes','Hinweise zur Zufahrt','Примітки щодо під’їзду','Uwagi o dojeździe','Note de acces','Napomene o pristupu'],
+'f.notesPh':['Gate code, concierge, preferred time','Torcode, Concierge, Wunschzeit','Код воріт, консьєрж, бажаний час','Kod bramy, recepcja, preferowana godzina','Cod poartă, concierge, ora preferată','Šifra kapije, portir, željeno vreme'],
+'f.first':['First name','Vorname','Ім’я','Imię','Prenume','Ime'],
+'f.last':['Last name','Nachname','Прізвище','Nazwisko','Nume','Prezime'],
+'f.company':['Company (if buying through one)','Firma (falls über eine Firma)','Компанія (якщо купуєте через неї)','Firma (jeśli kupujesz na firmę)','Companie (dacă cumperi prin firmă)','Firma (ako kupujete preko firme)'],
+'f.email':['Email','E-Mail','Ел. пошта','E-mail','E-mail','E-pošta'],
+'f.phone':['Phone','Telefon','Телефон','Telefon','Telefon','Telefon'],
+'f.lang':['Preferred language','Bevorzugte Sprache','Мова спілкування','Preferowany język','Limba preferată','Željeni jezik'],
+'f.pay':['Payment','Zahlung','Оплата','Płatność','Plată','Plaćanje'],
+'p1b':['Bank transfer','Banküberweisung','Банківський переказ','Przelew bankowy','Transfer bancar','Bankovna uplata'],
+'p1s':['At least 55 % deposit with the order confirmation, balance before dispatch.','Mindestens 55 % Anzahlung mit der Auftragsbestätigung, Restbetrag vor dem Versand.','Щонайменше 55 % передоплати з підтвердженням замовлення, решта до відправлення.','Co najmniej 55 % zaliczki wraz z potwierdzeniem zamówienia, reszta przed wysyłką.','Minimum 55 % avans la confirmarea comenzii, restul înainte de expediere.','Najmanje 55 % avansa uz potvrdu porudžbine, ostatak pre otpreme.'],
+'p2b':['Direct bank transfer','Direkte Banküberweisung','Прямий банківський переказ','Bezpośredni przelew','Transfer bancar direct','Direktna bankovna uplata'],
+'p2s':['Deposit to reserve, balance before dispatch.','Anzahlung zur Reservation, Rest vor Versand.','Завдаток для бронювання, решта до відправлення.','Zaliczka na rezerwację, reszta przed wysyłką.','Avans pentru rezervare, restul înainte de expediere.','Depozit za rezervaciju, ostatak pre otpreme.'],
+'c.end':['I confirm that I am the end user, that the car will be registered and kept in the delivery country, and that I am not on any Swiss, EU or UN sanctions list.','Ich bestätige, dass ich Endnutzer bin, dass das Auto im Lieferland eingelöst und gehalten wird und dass ich auf keiner Sanktionsliste der Schweiz, der EU oder der UNO stehe.','Я підтверджую, що є кінцевим користувачем, що авто буде зареєстроване та використовуватиметься в країні доставки і що мене немає в жодному санкційному списку Швейцарії, ЄС чи ООН.','Potwierdzam, że jestem użytkownikiem końcowym, że auto zostanie zarejestrowane i będzie użytkowane w kraju dostawy oraz że nie figuruję na żadnej liście sankcyjnej Szwajcarii, UE ani ONZ.','Confirm că sunt utilizatorul final, că mașina va fi înmatriculată și folosită în țara de livrare și că nu figurez pe nicio listă de sancțiuni a Elveției, UE sau ONU.','Potvrđujem da sam krajnji korisnik, da će automobil biti registrovan i korišćen u zemlji isporuke i da se ne nalazim ni na jednoj listi sankcija Švajcarske, EU ili UN.'],
+'c.terms':['I accept that this order is a binding reservation request and that a deposit of at least 55 % is due with the order confirmation. Gebauer Swiss Automobiles confirms price, delivery date and costs in writing within 24 hours.','Ich akzeptiere, dass diese Bestellung eine verbindliche Reservationsanfrage ist und mit der Auftragsbestätigung eine Anzahlung von mindestens 55 % fällig wird. Gebauer Swiss Automobiles bestätigt Preis, Liefertermin und Kosten innert 24 Stunden schriftlich.','Я погоджуюсь, що це замовлення є обов’язковим запитом на бронювання і що з підтвердженням замовлення сплачується передоплата щонайменше 55 %. Gebauer Swiss Automobiles письмово підтверджує ціну, дату доставки та витрати протягом 24 годин.','Akceptuję, że to zamówienie jest wiążącą prośbą o rezerwację i że wraz z potwierdzeniem zamówienia należna jest zaliczka w wysokości co najmniej 55 %. Gebauer Swiss Automobiles potwierdzi cenę, termin dostawy i koszty na piśmie w ciągu 24 godzin.','Accept că această comandă este o cerere fermă de rezervare și că la confirmarea comenzii se plătește un avans de minimum 55 %. Gebauer Swiss Automobiles confirmă în scris prețul, data livrării și costurile în 24 de ore.','Prihvatam da je ova porudžbina obavezujući zahtev za rezervaciju i da se uz potvrdu porudžbine plaća avans od najmanje 55 %. Gebauer Swiss Automobiles pisanim putem potvrđuje cenu, datum isporuke i troškove u roku od 24 sata.'],
+'back':['Back','Zurück','Назад','Wstecz','Înapoi','Nazad'],
+'cont':['Continue','Weiter','Далі','Dalej','Continuă','Nastavi'],
+'send':['Send my order','Bestellung senden','Надіслати замовлення','Wyślij zamówienie','Trimite comanda','Pošalji porudžbinu'],
+'sending':['Sending…','Wird gesendet…','Надсилання…','Wysyłanie…','Se trimite…','Slanje…'],
+'err.want':['Please tell us which model you are looking for.','Bitte nennen Sie das gesuchte Modell.','Вкажіть, будь ласка, яку модель ви шукаєте.','Podaj, jakiego modelu szukasz.','Spune-ne ce model cauți.','Navedite koji model tražite.'],
+'err.country':['Please choose the delivery country.','Bitte wählen Sie das Lieferland.','Оберіть країну доставки.','Wybierz kraj dostawy.','Alege țara de livrare.','Izaberite zemlju isporuke.'],
+'err.addr':['Please add city and street for the delivery address.','Bitte ergänzen Sie Ort und Strasse.','Додайте місто та вулицю для доставки.','Dodaj miasto i ulicę adresu dostawy.','Adaugă orașul și strada pentru livrare.','Dodajte grad i ulicu za isporuku.'],
+'err.name':['Please add your first and last name.','Bitte Vor- und Nachnamen angeben.','Вкажіть ім’я та прізвище.','Podaj imię i nazwisko.','Adaugă prenumele și numele.','Unesite ime i prezime.'],
+'err.email':['Please check the email address.','Bitte prüfen Sie die E-Mail-Adresse.','Перевірте адресу ел. пошти.','Sprawdź adres e-mail.','Verifică adresa de e-mail.','Proverite adresu e-pošte.'],
+'err.phone':['Please add a phone number.','Bitte Telefonnummer angeben.','Додайте номер телефону.','Podaj numer telefonu.','Adaugă un număr de telefon.','Unesite broj telefona.'],
+'err.check':['Please confirm both statements to send the order.','Bitte bestätigen Sie beide Punkte, um zu senden.','Підтвердьте обидва пункти, щоб надіслати замовлення.','Potwierdź oba oświadczenia, aby wysłać zamówienie.','Confirmă ambele declarații pentru a trimite comanda.','Potvrdite obe izjave da biste poslali porudžbinu.'],
+'sum.ref':['Reference','Referenz','Номер','Numer','Referință','Broj'],
+'sum.price':['Price','Preis','Ціна','Cena','Preț','Cena'],
+'sum.to':['Delivery to','Lieferung an','Доставка','Dostawa do','Livrare la','Isporuka na'],
+'sum.client':['Client','Kunde','Клієнт','Klient','Client','Klijent'],
+'sum.decl':['Declarations','Erklärungen','Декларації','Oświadczenia','Declarații','Izjave'],
+'sum.declV':['End-user and sanctions declaration confirmed; binding reservation request accepted','Endverbleibs- und Sanktionserklärung bestätigt; verbindliche Reservationsanfrage akzeptiert','','','',''],
+'exw':['ex works Zürich','ab Zürich','франко Цюрих','loco Zurych','franco Zürich','franko Cirih'],
+'asap':['Earliest possible','Frühestmöglich','Якнайшвидше','Jak najszybciej','Cât mai curând','Što pre'],
+'done.okL':['Order received','Bestellung erhalten','Замовлення отримано','Zamówienie przyjęte','Comandă primită','Porudžbina primljena'],
+'done.okP':['Thank you, {name}. Your order for the {car} is with Ronny. You will receive price, delivery date and all costs to {city} in writing within 24 hours at {email}.','Danke, {name}. Ihre Bestellung für {car} liegt bei Ronny. Preis, Liefertermin und alle Kosten bis {city} erhalten Sie innert 24 Stunden schriftlich an {email}.','Дякуємо, {name}. Ваше замовлення на {car} вже у Ронні. Ціну, дату доставки та всі витрати до {city} ви отримаєте письмово протягом 24 годин на {email}.','Dziękujemy, {name}. Twoje zamówienie na {car} jest już u Ronny’ego. Cenę, termin dostawy i wszystkie koszty do {city} otrzymasz na piśmie w ciągu 24 godzin na {email}.','Mulțumim, {name}. Comanda ta pentru {car} a ajuns la Ronny. Vei primi în scris prețul, data livrării și toate costurile până la {city} în 24 de ore, la {email}.','Hvala, {name}. Vaša porudžbina za {car} je kod Ronnyja. Cenu, datum isporuke i sve troškove do {city} dobićete pisanim putem u roku od 24 sata na {email}.'],
+'done.back':['Back to the collection','Zurück zur Kollektion','Повернутися до колекції','Wróć do kolekcji','Înapoi la colecție','Nazad na kolekciju'],
+'done.leftL':['One step left: send your order','Noch ein Schritt: Bestellung senden','Залишився один крок: надішліть замовлення','Został jeden krok: wyślij zamówienie','Mai e un pas: trimite comanda','Još jedan korak: pošaljite porudžbinu'],
+'done.leftP':['Your order is prepared. Press the button to open it in your email app and send it to us. Ronny confirms price, delivery date and all costs to {city} within 24 hours.','Ihre Bestellung ist vorbereitet. Drücken Sie den Knopf, um sie in Ihrem E-Mail-Programm zu öffnen und an uns zu senden. Ronny bestätigt Preis, Liefertermin und alle Kosten bis {city} innert 24 Stunden.','Ваше замовлення підготовлено. Натисніть кнопку, щоб відкрити його у поштовому застосунку та надіслати нам. Ронні підтвердить ціну, дату доставки та всі витрати до {city} протягом 24 годин.','Twoje zamówienie jest gotowe. Naciśnij przycisk, aby otworzyć je w programie pocztowym i wysłać do nas. Ronny potwierdzi cenę, termin dostawy i wszystkie koszty do {city} w ciągu 24 godzin.','Comanda ta este pregătită. Apasă butonul pentru a o deschide în aplicația de e-mail și a ne-o trimite. Ronny confirmă prețul, data livrării și toate costurile până la {city} în 24 de ore.','Vaša porudžbina je pripremljena. Pritisnite dugme da je otvorite u aplikaciji za e-poštu i pošaljete nam. Ronny potvrđuje cenu, datum isporuke i sve troškove do {city} u roku od 24 sata.'],
+'done.mail':['Send order by email','Bestellung per E-Mail senden','Надіслати замовлення поштою','Wyślij zamówienie e-mailem','Trimite comanda pe e-mail','Pošalji porudžbinu e-poštom'],
+'done.box':['If your email app does not open, send the order text to {email}.','Falls sich Ihr E-Mail-Programm nicht öffnet, senden Sie den Bestelltext an {email}.','Якщо поштовий застосунок не відкрився, надішліть текст замовлення на {email}.','Jeśli program pocztowy się nie otworzy, wyślij treść zamówienia na {email}.','Dacă aplicația de e-mail nu se deschide, trimite textul comenzii la {email}.','Ako se aplikacija za e-poštu ne otvori, pošaljite tekst porudžbine na {email}.'],
+'done.copy':['Copy order text','Bestelltext kopieren','Скопіювати текст','Kopiuj treść','Copiază textul','Kopiraj tekst'],
+'done.copied':['Copied.','Kopiert.','Скопійовано.','Skopiowano.','Copiat.','Kopirano.'],
+'done.copyFail':['Copy is blocked here. Please select the text in the review step.','Kopieren ist hier blockiert. Bitte markieren Sie den Text im Prüfschritt.','Копіювання тут заблоковано. Виділіть текст на кроці перевірки.','Kopiowanie jest tu zablokowane. Zaznacz tekst w kroku podsumowania.','Copierea este blocată aici. Selectează textul la pasul de verificare.','Kopiranje je ovde blokirano. Označite tekst u koraku pregleda.']
+};
+let L = 'en';
+function t(k, vars){ const a=T[k]; if(!a) return k; let s=a[LANGS.indexOf(L)]||a[0]; if(vars) for(const v in vars) s=s.split('{'+v+'}').join(vars[v]); return s; }
+function tde(k){ const a=T[k]; return a ? (a[1]||a[0]) : k; }
+
+/* ===================== DATA ===================== */
+const CITY = {
+  Prague:['Prague','Prag','Прага','Praga','Praga','Prag'],
+  Vienna:['Vienna','Wien','Відень','Wiedeń','Viena','Beč'],
+  Budapest:['Budapest','Budapest','Будапешт','Budapeszt','Budapesta','Budimpešta'],
+  Belgrade:['Belgrade','Belgrad','Белград','Belgrad','Belgrad','Beograd'],
+  Warsaw:['Warsaw','Warschau','Варшава','Warszawa','Varșovia','Varšava'],
+  Lviv:['Lviv','Lwiw','Львів','Lwów','Liov','Lavov'],
+  Bucharest:['Bucharest','Bukarest','Бухарест','Bukareszt','București','Bukurešt'],
+  Vilnius:['Vilnius','Vilnius','Вільнюс','Wilno','Vilnius','Viljnus'],
+  Kyiv:['Kyiv','Kyjiw','Київ','Kijów','Kiev','Kijev'],
+  Odesa:['Odesa','Odessa','Одеса','Odessa','Odesa','Odesa'],
+  Zurich:['Zürich','Zürich','Цюрих','Zurych','Zürich','Cirih'],
+  Munich:['Munich','München','Мюнхен','Monachium','München','Minhen']
+};
+const DEST = [
+  {c:'Prague', cc:'CZ', km:690, d:'5–7', lon:14.42, lat:50.08},
+  {c:'Vienna', cc:'AT', km:745, d:'5–6', lon:16.37, lat:48.21},
+  {c:'Budapest', cc:'HU', km:1000, d:'5–7', lon:19.04, lat:47.50},
+  {c:'Belgrade', cc:'RS', km:1290, d:'7–9', lon:20.46, lat:44.79},
+  {c:'Warsaw', cc:'PL', km:1250, d:'6–8', lon:21.01, lat:52.23},
+  {c:'Lviv', cc:'UA', km:1560, d:'7–9', lon:24.03, lat:49.84},
+  {c:'Bucharest', cc:'RO', km:1780, d:'7–9', lon:26.10, lat:44.43},
+  {c:'Vilnius', cc:'LT', km:1800, d:'7–9', lon:25.28, lat:54.69},
+  {c:'Kyiv', cc:'UA', km:2090, d:'8–10', lon:30.52, lat:50.45},
+  {c:'Odesa', cc:'UA', km:2150, d:'8–10', lon:30.73, lat:46.48}
+];
+const COUNTRIES = ['UA','PL','CZ','SK','HU','RO','BG','LT','LV','EE','SI','HR','RS','BA','ME','MK','AL','MD','AT','DE'];
+
+/* ===================== HELPERS ===================== */
+const sw  = n => n.toLocaleString('de-CH').replace(/[’,’]/g,"'");
+const chf = n => "CHF " + sw(n);
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const city = (c, lang) => (CITY[c]||[c])[LANGS.indexOf(lang||L)] || c;
+let regionNames = null;
+function country(cc, lang){ try{ return new Intl.DisplayNames([lang||L],{type:'region'}).of(cc); }catch(e){ return cc; } }
+const tag = x => x[0]==='@' ? t('tag.'+x.slice(1)) : x;
+
+/* ===================== STATIC TEXT ===================== */
+function applyStatic(){
+  document.documentElement.lang = L;
+  document.querySelectorAll('[data-i]').forEach(el=>{ el.innerHTML = t(el.dataset.i); });
+  document.querySelectorAll('[data-ph]').forEach(el=>{ el.placeholder = t(el.dataset.ph); });
+  const docs=[1,2,3,4,5,6].map(i=>`<li><span class="k">${['CH','CH','EU','EU','DEST','CAR'][i-1]}</span><div><b>${t('d'+i+'b')}</b><span class="s">${t('d'+i+'s')}</span></div><span class="ok">${t('incl')}</span></li>`).join('');
+  $('#docs').innerHTML = docs;
+  $('#langBtns').innerHTML = LANGS.map(l=>`<button type="button" data-l="${l}" aria-pressed="${l===L}" title="${LANG_NAME[l]}">${LANG_LABEL[l]}</button>`).join('');
+  $('#mLang').innerHTML = LANGS.map(l=>`<button type="button" data-l="${l}" aria-pressed="${l===L}">${LANG_NAME[l]}</button>`).join('');
+  $('#langSel').innerHTML = LANGS.map(l=>`<option value="${l}" ${l===L?'selected':''}>${LANG_LABEL[l]}</option>`).join('');
+}
+function setLang(l){
+  L = LANGS.includes(l)?l:'en';
+  try{ localStorage.setItem('gebauer-lang',L); }catch(e){}
+  applyStatic(); renderBrands(); renderTable(); fillSelects(); setActive(idx);
+  if(document.body.classList.contains('open')){ updatePicked(); go(step===4?3:step); }
+}
+$('#langBtns').addEventListener('click',e=>{const b=e.target.closest('[data-l]'); if(b) setLang(b.dataset.l);});
+$('#mLang').addEventListener('click',e=>{const b=e.target.closest('[data-l]'); if(b) setLang(b.dataset.l);});
+function setMenu(on){ document.body.classList.toggle('menu',on); $('#burger').setAttribute('aria-expanded',on); }
+$('#burger').addEventListener('click',()=>setMenu(!document.body.classList.contains('menu')));
+$('#mmenu').addEventListener('click',e=>{ if(e.target.closest('a,[data-order]')) setMenu(false); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') setMenu(false); });
+$('#langSel').addEventListener('change',e=>setLang(e.target.value));
+
+/* ===================== MARQUEE ===================== */
+(function(){
+  const words = ['Porsche','Turbo S','Bentley','Mulliner','Mercedes-AMG','Black Series','Ferrari','Roma','Lamborghini','Performante','Rolls-Royce','Cullinan','Aston Martin','DB12','McLaren','750S','Maserati','MC20'];
+  const html = words.map(w=>`<span>${w}</span>`).join('');
+  $('#marq').innerHTML = html + html;
+})();
+
+/* ===================== MAP ===================== */
+const svg = $('#map'); const NS='http://www.w3.org/2000/svg';
+const P = (lon,lat) => [ (lon-5)*21.5+12, (56-lat)*21.5+6 ];
+const Z = P(8.54,47.37);
+for(let i=0;i<=6;i++){ const l=document.createElementNS(NS,'line'); l.setAttribute('x1',0);l.setAttribute('x2',620);l.setAttribute('y1',i*50);l.setAttribute('y2',i*50);l.setAttribute('stroke','#16181b');svg.appendChild(l); }
+for(let i=0;i<=12;i++){ const l=document.createElementNS(NS,'line'); l.setAttribute('y1',0);l.setAttribute('y2',300);l.setAttribute('x1',i*52);l.setAttribute('x2',i*52);l.setAttribute('stroke','#16181b');svg.appendChild(l); }
+const paths = DEST.map(d=>{
+  const [x,y] = P(d.lon,d.lat);
+  const mx=(Z[0]+x)/2, my=Math.min(Z[1],y)-40-Math.abs(x-Z[0])*0.08;
+  const p=document.createElementNS(NS,'path'); p.setAttribute('d',`M${Z[0]} ${Z[1]} Q${mx} ${my} ${x} ${y}`); p.setAttribute('class','route'); svg.appendChild(p);
+  const c=document.createElementNS(NS,'circle'); c.setAttribute('cx',x);c.setAttribute('cy',y);c.setAttribute('r',2.4);c.setAttribute('fill','#9a958b'); svg.appendChild(c);
+  const tx=document.createElementNS(NS,'text'); tx.setAttribute('x',x+6);tx.setAttribute('y',y+3);tx.setAttribute('class','city'); svg.appendChild(tx);
+  return {p,c,tx,d};
+});
+const o=document.createElementNS(NS,'circle'); o.setAttribute('cx',Z[0]);o.setAttribute('cy',Z[1]);o.setAttribute('r',4);o.setAttribute('fill','#ece6da'); svg.appendChild(o);
+const ot=document.createElementNS(NS,'text'); ot.setAttribute('x',Z[0]-6);ot.setAttribute('y',Z[1]+18);ot.setAttribute('class','city origin'); svg.appendChild(ot);
+const MU=P(11.58,48.14);
+const ml=document.createElementNS(NS,'path'); ml.setAttribute('d',`M${Z[0]} ${Z[1]} Q${(Z[0]+MU[0])/2} ${Math.min(Z[1],MU[1])-14} ${MU[0]} ${MU[1]}`); ml.setAttribute('fill','none'); ml.setAttribute('stroke','#ece6da'); ml.setAttribute('stroke-width','.8'); ml.setAttribute('stroke-dasharray','2 3'); svg.appendChild(ml);
+const mo=document.createElementNS(NS,'circle'); mo.setAttribute('cx',MU[0]);mo.setAttribute('cy',MU[1]);mo.setAttribute('r',3);mo.setAttribute('fill','#ece6da'); svg.appendChild(mo);
+const mt=document.createElementNS(NS,'text'); mt.setAttribute('x',MU[0]-4);mt.setAttribute('y',MU[1]+16);mt.setAttribute('class','city origin'); svg.appendChild(mt);
+const dot=document.createElementNS(NS,'circle'); dot.setAttribute('r',4);dot.setAttribute('fill','#d42a1e'); svg.appendChild(dot);
+let idx = DEST.findIndex(d=>d.c==='Warsaw'), t0=performance.now();
+function setActive(i){
+  paths.forEach((r,j)=>{ r.p.classList.toggle('hot',j===i); r.c.setAttribute('fill', j===i?'#d42a1e':'#9a958b'); r.tx.textContent=city(r.d.c); });
+  ot.textContent = city('Zurich'); mt.textContent = city('Munich');
+  const d=DEST[i]; $('#rt-city').textContent=city(d.c); $('#rt-km').textContent=sw(d.km)+' km'; $('#rt-days').textContent=d.d+' '+t('map.days');
+  $('#rt-label').textContent='ZRH → '+d.c.slice(0,3).toUpperCase();
+}
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+function frame(now){
+  const r=paths[idx]; const Ln=r.p.getTotalLength(); const k=Math.min(1,(now-t0)/2600);
+  const e = k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2; const pt=r.p.getPointAtLength(Ln*e);
+  dot.setAttribute('cx',pt.x); dot.setAttribute('cy',pt.y);
+  if(now-t0>3400){ idx=(idx+3)%DEST.length; setActive(idx); t0=now; }
+  requestAnimationFrame(frame);
+}
+
+/* ===================== DELIVERY TABLE ===================== */
+function renderTable(){
+  const max = Math.max(...DEST.map(d=>d.km));
+  $('#dtable').innerHTML = [...DEST].sort((a,b)=>a.km-b.km).map(d=>`<tr><td>${esc(city(d.c))}</td><td>${esc(country(d.cc))}</td><td class="r">~ ${sw(d.km)} km</td><td style="padding-left:24px"><div class="bar"><i style="width:${(d.km/max*100).toFixed(1)}%"></i></div></td><td class="r">${d.d} ${t('wd')}</td></tr>`).join('');
+}
+
+/* ===================== BRANDS ===================== */
+const BRANDS = [
+  ['Porsche','911 · Cayenne · Taycan'],['Ferrari','Roma · Purosangue · 296'],['Lamborghini','Urus · Revuelto · Temerario'],
+  ['Rolls-Royce','Ghost · Cullinan · Spectre'],['Bentley','Continental GT · Bentayga'],['Mercedes-AMG','G 63 · SL 63 · GT 63'],
+  ['Mercedes-Maybach','S 680 · GLS 600'],['Aston Martin','DB12 · DBX707 · Vantage'],['McLaren','750S · Artura'],
+  ['Maserati','MC20 · GranTurismo'],['Range Rover','SV · Sport']
+];
+function renderBrands(){
+  $('#brandGrid').innerHTML = BRANDS.map(([b,m])=>`<button type="button" class="brand-t" data-order="${esc(b)}"><span class="bn">${esc(b)}</span><span class="bm">${esc(m)}</span><span class="bc">${t('br.cta')} <span class="arr"></span></span></button>`).join('')
+   + `<button type="button" class="brand-t other" data-order="OTHER"><span class="bn">${t('br.other')}</span><span class="bm">${t('br.otherM')}</span><span class="bc">${t('br.cta')} <span class="arr"></span></span></button>`;
+}
+
+/* ===================== ABOUT PHOTO ===================== */
+if(ABOUT_PHOTO){ $('#portrait').innerHTML = `<img src="${esc(ABOUT_PHOTO)}" alt="Ronny Gebauer">`; }
+
+/* ===================== ORDER FLOW ===================== */
+const form = $('#form'); let step = 0; let orderRef = '';
+const panes = [...document.querySelectorAll('.pane')];
+const progs = [...document.querySelectorAll('#prog div')];
+function fillSelects(){
+  const bv=$('#f-brand').value, cc=$('#f-country').value;
+  $('#f-brand').innerHTML = BRANDS.map(([b])=>`<option value="${esc(b)}">${esc(b)}</option>`).join('') + `<option value="OTHER">${esc(t('br.other'))}</option>`;
+  if(bv) $('#f-brand').value = bv;
+  $('#f-country').innerHTML = `<option value="">${esc(t('f.selectCountry'))}</option>` + COUNTRIES.map(c=>`<option value="${c}">${esc(country(c))}</option>`).join('') + `<option value="OTHER">${esc(t('f.other'))}</option>`;
+  $('#f-country').value = cc;
+}
+$('#f-date').min = new Date(Date.now()+6*864e5).toISOString().slice(0,10);
+function brandName(lang){ const v=val('brand'); return v==='OTHER' ? (lang==='de'?tde('br.other'):t('br.other')) : v; }
+function setPh(){ const b=BRANDS.find(x=>x[0]===$('#f-brand').value); $('#f-want').placeholder = b ? b[1].split(' · ')[0] : ''; }
+$('#f-brand').addEventListener('change',setPh);
+function updatePicked(){ setPh(); $('#dtitle').textContent = t('cta.order'); $('#dkicker').textContent = t('d.kicker'); }
+function openOrder(brand){
+  orderRef='';
+  if(brand) $('#f-brand').value = brand;
+  const l=LANGS.indexOf(L); $('#f-lang').selectedIndex = l<0?0:l;
+  updatePicked(); go(0); document.body.classList.add('open'); setTimeout(()=>$('#f-want').focus(),400);
+}
+function closeOrder(){ document.body.classList.remove('open'); }
+document.addEventListener('click',e=>{const b=e.target.closest('[data-order]'); if(b){ e.preventDefault(); openOrder(b.dataset.order); }});
+$('#close').onclick=closeOrder; $('#scrim').onclick=closeOrder;
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeOrder(); });
+
+function val(n){ const el=form.elements[n]; if(!el) return ''; if(el instanceof RadioNodeList) return el.value; return (el.value||'').trim(); }
+function validate(s){
+  if(s===0) return val('want') ? '' : t('err.want');
+  if(s===1) return !val('country') ? t('err.country') : (!val('city')||!val('street')) ? t('err.addr') : '';
+  if(s===2) return (!val('first')||!val('last')) ? t('err.name') : !/^\S+@\S+\.\S+$/.test(val('email')) ? t('err.email') : !val('phone') ? t('err.phone') : '';
+  if(s===3) return (!$('#c-end').checked||!$('#c-terms').checked) ? t('err.check') : '';
+  return '';
+}
+function buildOrder(forEmail){
+  const tr = forEmail ? tde : t; const lg = forEmail ? 'de' : L;
+  const cn = val('country')==='OTHER' ? tr('f.other') : country(val('country'), lg);
+  const rows = [
+    [tr('sum.ref'), orderRef],
+    [tr('f.vehicle'), `${brandName(lg)} ${val('want')}`],
+    [tr('f.budget'), val('budget')||'—'],
+    [tr('f.spec'), val('spec')||'—'],
+    [tr('f.handover'), val('handover')==='door'?tr('h1b'):tr('h2b')],
+    [tr('sum.to'), [val('street'), [val('zip'),val('city')].filter(Boolean).join(' '), cn].filter(Boolean).join(', ')],
+    [tr('f.date'), val('date')||tr('asap')],
+    [tr('f.notes'), val('notes')||'—'],
+    [tr('sum.client'), `${val('first')} ${val('last')}${val('company')?' · '+val('company'):''}`],
+    [tr('f.email'), val('email')],
+    [tr('f.phone'), val('phone')],
+    [tr('f.lang'), val('lang')],
+    [tr('f.pay'), tr('p1b')+': '+tr('p1s')]
+  ];
+  if(forEmail) rows.push([tde('sum.decl'), tde('sum.declV')], ['Website-Sprache', LANG_NAME[L]]);
+  return rows;
+}
+function renderSummary(){
+  if(!orderRef){ const d=new Date(); orderRef='GSA-'+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,'0')+'-'+Math.random().toString(36).slice(2,6).toUpperCase(); }
+  $('#summary').innerHTML = buildOrder(false).map(([k,v])=>`<div><dt>${esc(k.toUpperCase())}</dt><dd>${esc(v)}</dd></div>`).join('');
+}
+function go(s){
+  step=s; $('#err').textContent='';
+  panes.forEach((p,i)=>p.classList.toggle('on',i===s));
+  progs.forEach((p,i)=>{p.classList.toggle('on',i===s); p.classList.toggle('done',i<s);});
+  $('#back').style.visibility = (s===0||s===4)?'hidden':'visible';
+  $('#foot').style.display = s===4?'none':'flex';
+  $('#next').innerHTML = (s===3 ? t('send') : t('cont')) + ' <span class="arr"></span>';
+  if(s===3) renderSummary();
+  $('#form').scrollTop=0;
+}
+$('#back').onclick=()=>go(Math.max(0,step-1));
+$('#next').onclick=async()=>{
+  const e=validate(step); if(e){ $('#err').textContent=e; return; }
+  if(step<3){ go(step+1); return; }
+  await submitOrder();
+};
+function orderText(){ return buildOrder(true).map(([k,v])=>`${k}: ${v}`).join('\n'); }
+function mailtoHref(){
+  const subj = `Gebauer Bestellung ${orderRef} · ${brandName('de')} ${val('want')} · ${val('last')}`;
+  return `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(orderText())}`;
+}
+async function submitOrder(){
+  const btn=$('#next'); btn.disabled=true; btn.textContent=t('sending');
+  let sent=false;
+  const data = Object.fromEntries(buildOrder(true));
+  try{
+    if(ORDER_MODE==='netlify'){
+      const body=new URLSearchParams({'form-name':'gebauer-order', order:orderText(), reference:orderRef, email:val('email')}).toString();
+      const r=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body}); sent=r.ok;
+    } else if(ORDER_MODE==='formspree' && ENDPOINT){
+      const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({...data,_subject:'Gebauer Bestellung '+orderRef,_replyto:val('email')})}); sent=r.ok;
+    }
+  }catch(err){ sent=false; }
+  btn.disabled=false;
+  const carName = `${brandName(L)} ${val('want')}`;
+  $('#doneBox').innerHTML = sent ? `
+      <div class="label">${t('done.okL')}</div>
+      <div class="ref num">${esc(orderRef)}</div>
+      <p>${esc(t('done.okP',{name:val('first'),car:carName,city:val('city'),email:val('email')}))}</p>
+      <button class="btn" type="button" onclick="closeOrder()">${t('done.back')}</button>`
+    : `
+      <div class="label">${t('done.leftL')}</div>
+      <div class="ref num">${esc(orderRef)}</div>
+      <p>${esc(t('done.leftP',{city:val('city')}))}</p>
+      <a class="btn solid" href="${mailtoHref()}">${t('done.mail')} <span class="arr"></span></a>
+      <div class="mailbox">${esc(t('done.box',{email:ORDER_EMAIL}))}<br><br><button class="btn ghost" type="button" id="copyBtn" style="padding:12px 16px">${t('done.copy')}</button> <span id="copyMsg"></span></div>`;
+  const cb=$('#copyBtn'); if(cb) cb.onclick=async()=>{ try{ await navigator.clipboard.writeText(orderText()); $('#copyMsg').textContent=t('done.copied'); }catch(e){ $('#copyMsg').textContent=t('done.copyFail'); } };
+  go(4);
+}
+
+/* ===================== BOOT ===================== */
+(function(){
+  let l=null; try{ l=localStorage.getItem('gebauer-lang'); }catch(e){}
+  if(!l){ const n=(navigator.language||'en').slice(0,2).toLowerCase(); l = n==='sh'||n==='hr'||n==='bs'?'sr':n; }
+  setLang(l);
+  if(reduce){ const pt=paths[idx].p.getPointAtLength(paths[idx].p.getTotalLength()); dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y); }
+  else requestAnimationFrame(frame);
+})();
+</script>
+<form name="gebauer-order" data-netlify="true" hidden><input name="order"><input name="reference"><input name="email"></form>
+</body>
+</html>
