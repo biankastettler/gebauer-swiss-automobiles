@@ -484,6 +484,9 @@ footer{border-top-color:rgba(255,255,255,.1)}
 /* 'other marque' tile spans the full row */
 .brand-t.other{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px 24px}
 .brand-t.other .bc{margin-top:0;margin-left:auto}
+
+.nav .brand,.brand .lockup{flex:none}
+@media (max-width:1200px) and (min-width:981px){.nav ul{gap:16px}.nav ul a{letter-spacing:.16em;font-size:9.5px}.brand .lockup{height:64px}}
 </style>
 </head>
 <body>
@@ -494,8 +497,9 @@ footer{border-top-color:rgba(255,255,255,.1)}
     <ul>
       <li><a href="#brands" data-i="nav.brands"></a></li>
       <li><a href="#process" data-i="nav.process"></a></li>
-      <li><a href="#fleet" data-i="nav.fleet"></a></li>
       <li><a href="#delivery" data-i="nav.delivery"></a></li>
+      <li><a href="#fleet" data-i="nav.fleet"></a></li>
+      <li><a href="#leasing" data-i="nav.leasing"></a></li>
       <li><a href="#about" data-i="nav.about"></a></li>
     </ul>
     <div class="navr">
@@ -512,7 +516,8 @@ footer{border-top-color:rgba(255,255,255,.1)}
   <a href="#papers"><span data-i="nav.papers"></span><small>03</small></a>
   <a href="#delivery"><span data-i="nav.delivery"></span><small>04</small></a>
   <a href="#fleet"><span data-i="nav.fleet"></span><small>05</small></a>
-  <a href="#about"><span data-i="nav.about"></span><small>06</small></a>
+  <a href="#leasing"><span data-i="nav.leasing"></span><small>06</small></a>
+  <a href="#about"><span data-i="nav.about"></span><small>07</small></a>
   <div class="mlang" id="mLang" role="group" aria-label="Language"></div>
   <button class="btn solid" data-order=""><span data-i="cta.order"></span> <span class="arr"></span></button>
 </nav>
@@ -621,7 +626,7 @@ footer{border-top-color:rgba(255,255,255,.1)}
 <section id="leasing" class="lease">
   <div class="lease-bg" aria-hidden="true" style="background-image:url(img/fleet-car-transporters.jpg)"></div>
   <div class="wrap lease-in">
-    <div class="label" data-i="ls.k"></div>
+    <div class="label">06 · <span data-i="ls.k"></span></div>
     <h2 data-i="ls.h"></h2>
     <p data-i="ls.p"></p>
     <div class="lease-foot">
@@ -635,7 +640,7 @@ footer{border-top-color:rgba(255,255,255,.1)}
   <div class="wrap about">
     <div class="portrait" id="portrait"><span class="mono">RG</span><span class="cap label" data-i="about.photo"></span></div>
     <div>
-      <div class="label">06 · <span data-i="nav.about"></span></div>
+      <div class="label">07 · <span data-i="nav.about"></span></div>
       <h2 style="margin-top:20px" data-i="about.h"></h2>
       <p data-i="about.p1"></p>
       <p data-i="about.p2"></p>
@@ -748,6 +753,7 @@ const LANG_LABEL = {en:'EN',de:'DE',uk:'УКР',pl:'PL',ro:'RO',sr:'SRB'};
 const LANG_NAME  = {en:'English',de:'Deutsch',uk:'Українська',pl:'Polski',ro:'Română',sr:'Srpski'};
 /* key: [en, de, uk, pl, ro, sr] */
 const T = {
+'nav.leasing':['Leasing','Leasing','Лізинг','Leasing','Leasing','Lizing'],
 'ls.k':['Banks & leasing','Banken & Leasing','Банки та лізинг','Banki i leasing','Bănci și leasing','Banke i lizing'],
 'ls.h':['Lease returns and company fleets, before they reach the open market.','Leasingrückläufer und Firmenflotten, bevor sie auf den freien Markt kommen.','Авто після лізингу та корпоративні автопарки, ще до виходу на відкритий ринок.','Auta po leasingu i floty firmowe, zanim trafią na wolny rynek.','Mașini din leasing și flote de companie, înainte să ajungă pe piața liberă.','Vozila iz lizinga i službene flote, pre nego što stignu na slobodno tržište.'],
 'ls.p':['Together with Swiss banks and leasing companies, including Cembra Money Bank, we have access to vehicles from expiring leases and entire company fleets. These are mainly proven premium marques such as Audi, BMW and Mercedes-Benz: young cars, well kept and with a complete service history.','Gemeinsam mit Schweizer Banken und Leasinggesellschaften, unter anderem Cembra Money Bank, erhalten wir Zugang zu Fahrzeugen aus auslaufenden Leasingverträgen und ganzen Firmenflotten. Das sind vor allem bewährte Premium-Marken wie Audi, BMW und Mercedes-Benz: junge Fahrzeuge, gepflegt und mit lückenlosem Serviceheft.','Разом зі швейцарськими банками та лізинговими компаніями, зокрема Cembra Money Bank, ми маємо доступ до авто із завершених лізингових договорів і цілих корпоративних автопарків. Це переважно перевірені преміальні марки, як-от Audi, BMW і Mercedes-Benz: молоді авто, доглянуті та з повною сервісною історією.','Razem ze szwajcarskimi bankami i firmami leasingowymi, w tym Cembra Money Bank, mamy dostęp do aut z kończących się umów leasingowych i całych flot firmowych. To głównie sprawdzone marki premium, takie jak Audi, BMW i Mercedes-Benz: młode auta, zadbane i z pełną historią serwisową.','Împreună cu bănci și companii de leasing elvețiene, inclusiv Cembra Money Bank, avem acces la mașini din contracte de leasing încheiate și la flote întregi de companie. Sunt în principal mărci premium consacrate, precum Audi, BMW și Mercedes-Benz: mașini tinere, bine întreținute și cu istoric service complet.','Zajedno sa švajcarskim bankama i lizing kompanijama, uključujući Cembra Money Bank, imamo pristup vozilima iz isteklih lizing ugovora i čitavim službenim flotama. To su pre svega proverene premium marke kao što su Audi, BMW i Mercedes-Benz: mlada vozila, negovana i sa kompletnom servisnom istorijom.'],
