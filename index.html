@@ -467,6 +467,23 @@ footer{border-top-color:rgba(255,255,255,.1)}
 .brand .lockup{height:78px;width:auto;display:block}
 @media (max-width:980px){.brand .lockup{height:62px}}
 @media (max-width:520px){.brand .lockup{height:50px}}
+
+/* ---- banks & leasing band (image like the hero) ---- */
+.lease{position:relative;overflow:hidden;padding:clamp(110px,14vw,190px) 0;min-height:620px;display:flex;align-items:center}
+.lease-bg{position:absolute;inset:0;background-size:cover;background-position:60% 55%;opacity:.6}
+.lease-bg:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 0%,rgba(11,12,14,.9) 34%,rgba(11,12,14,.3) 70%,rgba(11,12,14,.55) 100%),linear-gradient(180deg,var(--ink) 0%,rgba(11,12,14,0) 18%,rgba(11,12,14,0) 82%,var(--ink) 100%)}
+.lease-in{position:relative;z-index:1;width:100%}
+.lease h2{font-size:clamp(34px,4.4vw,62px);line-height:1.04;max-width:22ch;margin-top:20px}
+.lease p{max-width:54ch;color:#d6d0c4;margin-top:22px}
+.lease-foot{display:flex;flex-wrap:wrap;align-items:center;gap:22px 40px;margin-top:36px}
+.partner{display:flex;flex-direction:column;gap:6px;padding-left:24px;border-left:1px solid rgba(217,220,225,.3)}
+.partner .pn{font-family:var(--label);font-size:15px;letter-spacing:.24em;color:#f2f2f2;font-weight:500}
+.partner .pn i{font-style:normal;font-weight:400;color:var(--plat)}
+.partner img{height:34px;width:auto}
+@media (max-width:760px){.lease{min-height:0}.lease-bg{opacity:.4}.partner{padding-left:0;border-left:0}}
+/* 'other marque' tile spans the full row */
+.brand-t.other{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;flex-wrap:wrap;gap:8px 24px}
+.brand-t.other .bc{margin-top:0;margin-left:auto}
 </style>
 </head>
 <body>
@@ -601,6 +618,19 @@ footer{border-top-color:rgba(255,255,255,.1)}
   </div>
 </section>
 
+<section id="leasing" class="lease">
+  <div class="lease-bg" aria-hidden="true" style="background-image:url(img/fleet-car-transporters.jpg)"></div>
+  <div class="wrap lease-in">
+    <div class="label" data-i="ls.k"></div>
+    <h2 data-i="ls.h"></h2>
+    <p data-i="ls.p"></p>
+    <div class="lease-foot">
+      <button class="btn solid" data-order="Audi"><span data-i="ls.cta"></span> <span class="arr"></span></button>
+      <div class="partner"><span class="label" data-i="ls.partner"></span><span class="pn">CEMBRA <i>MONEY BANK</i></span></div>
+    </div>
+  </div>
+</section>
+
 <section id="about" style="background:var(--panel)">
   <div class="wrap about">
     <div class="portrait" id="portrait"><span class="mono">RG</span><span class="cap label" data-i="about.photo"></span></div>
@@ -718,6 +748,11 @@ const LANG_LABEL = {en:'EN',de:'DE',uk:'УКР',pl:'PL',ro:'RO',sr:'SRB'};
 const LANG_NAME  = {en:'English',de:'Deutsch',uk:'Українська',pl:'Polski',ro:'Română',sr:'Srpski'};
 /* key: [en, de, uk, pl, ro, sr] */
 const T = {
+'ls.k':['Banks & leasing','Banken & Leasing','Банки та лізинг','Banki i leasing','Bănci și leasing','Banke i lizing'],
+'ls.h':['Lease returns and company fleets, before they reach the open market.','Leasingrückläufer und Firmenflotten, bevor sie auf den freien Markt kommen.','Авто після лізингу та корпоративні автопарки, ще до виходу на відкритий ринок.','Auta po leasingu i floty firmowe, zanim trafią na wolny rynek.','Mașini din leasing și flote de companie, înainte să ajungă pe piața liberă.','Vozila iz lizinga i službene flote, pre nego što stignu na slobodno tržište.'],
+'ls.p':['Together with Swiss banks and leasing companies, including Cembra Money Bank, we have access to vehicles from expiring leases and entire company fleets. These are mainly proven premium marques such as Audi, BMW and Mercedes-Benz: young cars, well kept and with a complete service history.','Gemeinsam mit Schweizer Banken und Leasinggesellschaften, unter anderem Cembra Money Bank, erhalten wir Zugang zu Fahrzeugen aus auslaufenden Leasingverträgen und ganzen Firmenflotten. Das sind vor allem bewährte Premium-Marken wie Audi, BMW und Mercedes-Benz: junge Fahrzeuge, gepflegt und mit lückenlosem Serviceheft.','Разом зі швейцарськими банками та лізинговими компаніями, зокрема Cembra Money Bank, ми маємо доступ до авто із завершених лізингових договорів і цілих корпоративних автопарків. Це переважно перевірені преміальні марки, як-от Audi, BMW і Mercedes-Benz: молоді авто, доглянуті та з повною сервісною історією.','Razem ze szwajcarskimi bankami i firmami leasingowymi, w tym Cembra Money Bank, mamy dostęp do aut z kończących się umów leasingowych i całych flot firmowych. To głównie sprawdzone marki premium, takie jak Audi, BMW i Mercedes-Benz: młode auta, zadbane i z pełną historią serwisową.','Împreună cu bănci și companii de leasing elvețiene, inclusiv Cembra Money Bank, avem acces la mașini din contracte de leasing încheiate și la flote întregi de companie. Sunt în principal mărci premium consacrate, precum Audi, BMW și Mercedes-Benz: mașini tinere, bine întreținute și cu istoric service complet.','Zajedno sa švajcarskim bankama i lizing kompanijama, uključujući Cembra Money Bank, imamo pristup vozilima iz isteklih lizing ugovora i čitavim službenim flotama. To su pre svega proverene premium marke kao što su Audi, BMW i Mercedes-Benz: mlada vozila, negovana i sa kompletnom servisnom istorijom.'],
+'ls.cta':['Request a lease return','Leasingrückläufer anfragen','Запит на авто після лізингу','Zapytaj o auto po leasingu','Solicită o mașină din leasing','Zatražite vozilo iz lizinga'],
+'ls.partner':['Partner','Partner','Партнер','Partner','Partener','Partner'],
 'imp.link':['Legal notice','Impressum','Правова інформація','Nota prawna','Informații legale','Impresum'],
 'imp.sole':['Sole proprietorship','Einzelunternehmen','Індивідуальний підприємець','Jednoosobowa działalność','Întreprindere individuală','Preduzetnik'],
 'imp.resp':['Responsible for content','Verantwortlich für den Inhalt','Відповідальний за зміст','Odpowiedzialny za treść','Responsabil pentru conținut','Odgovoran za sadržaj'],
@@ -1046,7 +1081,7 @@ const BRANDS = [
   ['Porsche','911 · Cayenne · Taycan'],['Ferrari','Roma · Purosangue · 296'],['Lamborghini','Urus · Revuelto · Temerario'],
   ['Rolls-Royce','Ghost · Cullinan · Spectre'],['Bentley','Continental GT · Bentayga'],['Mercedes-AMG','G 63 · SL 63 · GT 63'],
   ['Mercedes-Maybach','S 680 · GLS 600'],['Aston Martin','DB12 · DBX707 · Vantage'],['McLaren','750S · Artura'],
-  ['Maserati','MC20 · GranTurismo'],['Range Rover','SV · Sport']
+  ['Maserati','MC20 · GranTurismo'],['Range Rover','SV · Sport'],['Audi','RS 6 Avant · RS e-tron GT · Q8']
 ];
 function renderBrands(){
   $('#brandGrid').innerHTML = BRANDS.map(([b,m])=>`<button type="button" class="brand-t" data-order="${esc(b)}"><span class="bn">${esc(b)}</span><span class="bm">${esc(m)}</span><span class="bc">${t('br.cta')} <span class="arr"></span></span></button>`).join('')
