@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gebauer Swiss Automobiles</title>
-<meta name="description" content="Gebauer Swiss Automobiles by Ronny Gebauer. Hand-selected Swiss luxury automobiles, delivered with all export and import papers to your door in Eastern Europe.">
+<title>Gebauer Swiss Automobiles – Luxusautomobile aus der Schweiz, geliefert bis vor Ihre Tür</title>
+<meta name="description" content="Gebauer Swiss Automobiles von Ronny Gebauer: handverlesene Schweizer Luxusautomobile, geliefert mit allen Export- und Importpapieren bis vor Ihre Haustür in Osteuropa.">
+<link rel="canonical" href="https://gebauer-automobiles.com/">
+<link rel="icon" type="image/png" href="img/gebauer-wappen-klein.png">
+<link rel="apple-touch-icon" href="img/gebauer-wappen-klein.png">
+<meta name="theme-color" content="#0b0c0e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Gebauer Swiss Automobiles">
+<meta property="og:locale" content="de_CH">
+<meta property="og:url" content="https://gebauer-automobiles.com/">
+<meta property="og:title" content="Gebauer Swiss Automobiles – Luxusautomobile aus der Schweiz">
+<meta property="og:description" content="Handverlesene Schweizer Luxusautomobile, geliefert mit allen Export- und Importpapieren bis vor Ihre Haustür.">
+<meta property="og:image" content="https://gebauer-automobiles.com/img/rolls-royce-ghost.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;1,400&family=Inter:wght@400;500&family=Hanken+Grotesk:wght@300;400;500;600&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
@@ -1209,8 +1221,10 @@ async function submitOrder(){
 
 /* ===================== BOOT ===================== */
 (function(){
-  let l=null; try{ l=localStorage.getItem('gebauer-lang'); }catch(e){}
-  if(!l){ const n=(navigator.language||'en').slice(0,2).toLowerCase(); l = n==='sh'||n==='hr'||n==='bs'?'sr':n; }
+  // Standard: Deutsch. Ausnahmen: ?lang=xx in der URL oder eine vom Besucher gewählte Sprache.
+  let l=null; try{ l=new URLSearchParams(location.search).get('lang'); }catch(e){}
+  if(!l){ try{ l=localStorage.getItem('gebauer-lang'); }catch(e){} }
+  l = (l||'de').toLowerCase();
   setLang(l);
   if(reduce){ const pt=paths[idx].p.getPointAtLength(paths[idx].p.getTotalLength()); dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y); }
   else requestAnimationFrame(frame);
